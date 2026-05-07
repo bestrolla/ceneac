@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Cursos Styles</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-content">
+        <h1 class="subtitle">Lista de cursos (Style Test)</h1>
+
+        <!-- Search Bar Test -->
+        <div class="buscador-container">
+            <input type="text" placeholder="Buscar por nombre de curso...">
+        </div>
+
+        <!-- Courses Grid Test -->
+        <div id="cursos-container">
+            <section class="curso">
+                <h2>Curso de Ejemplo 1</h2>
+                <p><strong>Fecha de inicio:</strong> 2025-01-15</p>
+                <p><strong>Fecha de fin:</strong> 2025-03-15</p>
+                <p><strong>Horario:</strong> 8:00 AM - 12:00 PM</p>
+                <p><strong>Días:</strong> Lunes, Miércoles, Viernes</p>
+                <p><strong>Días festivos:</strong> Ninguno</p>
+                <p><strong>Total de estudiantes inscritos:</strong> 25</p>
+                <button class="btn-lista-estudiantes" data-curso-id="1">
+                    Lista de estudiantes
+                </button>
+            </section>
+
+            <section class="curso">
+                <h2>Curso de Ejemplo 2</h2>
+                <p><strong>Fecha de inicio:</strong> 2025-02-01</p>
+                <p><strong>Fecha de fin:</strong> 2025-04-01</p>
+                <p><strong>Horario:</strong> 2:00 PM - 6:00 PM</p>
+                <p><strong>Días:</strong> Martes, Jueves</p>
+                <p><strong>Días festivos:</strong> Ninguno</p>
+                <p><strong>Total de estudiantes inscritos:</strong> 18</p>
+                <button class="btn-lista-estudiantes" data-curso-id="2">
+                    Lista de estudiantes
+                </button>
+            </section>
+
+            <section class="curso">
+                <h2>Curso de Ejemplo 3</h2>
+                <p><strong>Fecha de inicio:</strong> No definida</p>
+                <p><strong>Fecha de fin:</strong> No definida</p>
+                <p><strong>Horario:</strong> No definido</p>
+                <p><strong>Días:</strong> No definidos</p>
+                <p><strong>Días festivos:</strong> Ninguno</p>
+                <p><strong>Total de estudiantes inscritos:</strong> 0</p>
+                <button class="btn-lista-estudiantes" data-curso-id="3">
+                    Lista de estudiantes
+                </button>
+            </section>
+        </div>
+
+        <!-- Pagination Test -->
+        <div id="paginacion-cursos" class="paginacion">
+            <button id="pagina-anterior">Anterior</button>
+            <span>Página 1 de 3</span>
+            <button id="pagina-siguiente">Siguiente</button>
+        </div>
+
+        <!-- Error Message Test -->
+        <div class="error-message">
+            Error de prueba: Este es un ejemplo de mensaje de error
+        </div>
+
+        <!-- Toast Container -->
+        <div class="toast-container">
+            <div class="toast success">
+                ✅ Cursos cargados correctamente
+            </div>
+            <div class="toast error">
+                ❌ Error al cargar los datos
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Test -->
+    <div id="modal-estudiantes" class="modal" style="display: block; position: relative; background: none; margin-top: 20px;">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Lista de estudiantes</h2>
+            <ul id="lista-estudiantes-modal">
+                <li>Juan Pérez - 12345678</li>
+                <li>María González - 87654321</li>
+                <li>Carlos López - 11223344</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 CENEAC. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Simple test interactions
+        document.querySelectorAll('.btn-lista-estudiantes').forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('Button clicked for course ID: ' + btn.dataset.cursoId);
+            });
+        });
+
+        document.querySelector('.modal-close').addEventListener('click', () => {
+            document.getElementById('modal-estudiantes').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

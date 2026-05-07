@@ -1,0 +1,231 @@
+:root {
+  --azul: #3558d5;
+  --azul-claro: #d7e1ff;
+  --blanco: #fff;
+  --gris: #e9e9e9;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f6f9ff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.contenedor-principal {
+  margin: 30px;
+}
+
+h1, h2 {
+  color: var(--azul);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 42px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+/* Barra superior */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--azul);
+  padding: 5px 20px;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.logo {
+  height: 60px;
+  border-radius: 15px;
+}
+
+/* Sidebar retráctil a la izquierda */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  background-color: var(--azul);
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  box-shadow: 10px 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar.left {
+  left: 0;
+}
+
+.sidebar a {
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 18px;
+  color: var(--blanco);
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: var(--azul-claro);
+  color: black;
+}
+
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 36px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Botón de menú */
+.openbtn {
+  font-size: 20px;
+  background-color: var(--azul);
+  color: white;
+  padding: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: var(--azul);
+  color: white;
+  margin-top: auto;
+}
+
+/* Contenedor principal con margen para el sidebar */
+main.contenido {
+  margin-left: 0; /* ajusta según ancho sidebar cuando esté abierto */
+  padding: 30px;
+  background-color: var(--blanco);
+  min-height: calc(100vh - 120px); /* espacio para header y footer */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+/* Formulario Programar Curso */
+form.form-programar {
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+form.form-programar .form-group {
+  flex: 1 1 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+form.form-programar label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--azul);
+}
+
+form.form-programar select,
+form.form-programar input[type="number"],
+form.form-programar input[type="date"] {
+  padding: 10px 12px;
+  border: 1px solid var(--gris);
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+form.form-programar select:focus,
+form.form-programar input[type="number"]:focus,
+form.form-programar input[type="date"]:focus {
+  border-color: var(--azul);
+  outline: none;
+}
+
+form.form-programar button.btn-submit {
+  padding: 12px 30px;
+  background-color: var(--azul);
+  border: none;
+  color: var(--blanco);
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex: 1 1 100%;
+  max-width: 200px;
+  align-self: center;
+}
+
+form.form-programar button.btn-submit:hover {
+  background-color: #2a44b8;
+}
+
+/* Tabla Cursos Programados */
+table.tabla-programados {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  margin: 0 auto 40px auto;
+}
+
+table.tabla-programados th,
+table.tabla-programados td {
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--gris);
+  text-align: left;
+}
+
+table.tabla-programados th {
+  background-color: var(--azul);
+  color: var(--blanco);
+  font-weight: 600;
+}
+
+table.tabla-programados tr:nth-child(even) {
+  background-color: var(--azul-claro);
+}
+
+table.tabla-programados tr:hover {
+  background-color: #b5c0f7;
+}
+
+/* Botones dentro de la tabla */
+table.tabla-programados button.btn-delete {
+  padding: 7px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  background-color: #d9534f;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+table.tabla-programados button.btn-delete:hover {
+  background-color: #b52b27;
+}

@@ -1,0 +1,586 @@
+/* Estilos generales para el cuerpo de la página del calendario */
+body {
+    font-family: 'Inter', sans-serif; /* Usar Inter como fuente */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6; /* Un color de fondo suave */
+    display: flex; /* Usar flexbox para el layout principal */
+    flex-direction: column; /* Apila elementos verticalmente */
+    min-height: 100vh; /* Asegura que ocupe al menos toda la altura de la ventana */
+    box-sizing: border-box; /* Incluye padding en el tamaño total */
+    overflow-x: hidden; /* Evitar scroll horizontal */
+    padding-top: 60px; /* Espacio para la barra superior centralizada */
+}
+
+/* Ocultar sidebar antiguo - usar sidebar centralizado */
+.sidebar {
+    display: none;
+}
+
+.sidebar .logo-container {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #4a627a;
+    padding-bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar .logo {
+    max-width: 120px;
+    height: auto;
+}
+
+.sidebar .user-info {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #aebbc7;
+    border-bottom: 1px solid #4a627a;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+.sidebar .menu {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar .menu li {
+    margin-bottom: 15px;
+}
+
+.sidebar .menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .menu a:hover {
+    background-color: #34495e; /* Tono más oscuro al pasar el ratón */
+}
+
+.content-wrapper {
+    display: flex;
+    flex-grow: 1; /* Permite que el contenido principal ocupe el espacio restante */
+    overflow: hidden; /* Oculta el desbordamiento horizontal */
+    position: relative; /* Para posicionar el panel lateral */
+    margin-top: 0; /* Ya incluido en body padding-top */
+}
+
+.main-content {
+    padding: 20px;
+    flex-grow: 1;
+    transition: margin-right 0.3s ease; /* Transición para cuando el panel se abre */
+    min-width: 0; /* Permite que el contenido se encoja si el panel se abre */
+}
+
+#calendar-container {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 1200px; /* Ancho máximo para pantallas grandes */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 25px;
+    background-color: #ffffff; /* Fondo blanco para el calendario */
+    border-radius: 15px; /* Bordes más redondeados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+    box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
+}
+
+/* Estilos para el encabezado del calendario (título, botones de navegación) */
+.fc-toolbar-title {
+    font-size: 2em; /* Título más grande */
+    color: #333;
+    font-weight: 700;
+}
+
+/* Estilos para los botones de FullCalendar */
+.fc-button {
+    background-color: #4CAF50; /* Verde vibrante */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.fc-button:hover {
+    background-color: #45a049; /* Tono más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+.fc-button-active {
+    background-color: #367c39; /* Color para el botón activo */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra interna para indicar activo */
+}
+
+/* Estilos para los días de la semana en el encabezado */
+.fc-col-header-cell {
+    background-color: #e0e0e0; /* Fondo gris claro para los días de la semana */
+    color: #555;
+    font-weight: 600;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Estilos para las celdas de los días del calendario */
+.fc-daygrid-day {
+    background-color: #fdfdfd; /* Fondo casi blanco para las celdas */
+    border: 1px solid #eee; /* Bordes suaves */
+}
+
+.fc-day-today {
+    background-color: #e6f7ff; /* Fondo azul claro para el día actual */
+    border: 1px solid #91d5ff;
+}
+
+/* Estilos para los eventos */
+.fc-event {
+    background-color: #2196F3; /* Azul primario para el color de los eventos */
+    color: white;
+    border: 1px solid #1976D2; /* Borde más oscuro del color de los eventos */
+    border-radius: 5px;
+    padding: 2px 5px;
+    font-size: 0.85em;
+    cursor: pointer; /* Indica que es clickeable */
+    transition: background-color 0.2s ease;
+}
+
+.fc-event:hover {
+    background-color: #1976D2; /* Azul más oscuro al pasar el ratón */
+}
+
+/* Estilos para el contenedor de mensajes (sin Tailwind) */
+#message-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 300px; /* Ancho fijo para los mensajes */
+}
+
+.alert {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    font-size: 0.9em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border-color: #bee5eb;
+}
+
+/* Estilos para el modal de confirmación (sin Tailwind) */
+.confirm-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* Asegura que esté por encima de todo */
+    visibility: hidden; /* Oculto por defecto */
+    opacity: 0; /* Transición de opacidad */
+    transition: visibility 0s, opacity 0.3s ease;
+}
+
+.confirm-modal-overlay.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.confirm-modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
+
+.confirm-modal-content p {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.confirm-modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Espacio entre botones */
+}
+
+.confirm-modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.confirm-modal-buttons .confirm-ok {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+}
+
+.confirm-modal-buttons .confirm-ok:hover {
+    background-color: #45a049;
+    transform: translateY(-1px);
+}
+
+.confirm-modal-buttons .confirm-cancel {
+    background-color: #e0e0e0; /* Gris */
+    color: #333;
+}
+
+.confirm-modal-buttons .confirm-cancel:hover {
+    background-color: #c0c0c0;
+    transform: translateY(-1px);
+}
+
+/* --- Estilos para el nuevo Panel de Detalles de Eventos --- */
+#event-details-panel {
+    position: fixed;
+    top: 60px; /* Espacio para la barra superior */
+    right: -400px;
+    width: 380px;
+    height: calc(100vh - 60px);
+    background-color: #f8f9fa;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    border-left: 1px solid #e0e0e0;
+}
+
+#event-details-panel.open {
+    right: 0;
+}
+
+#event-details-panel h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.5em;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#close-panel-btn {
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+#close-panel-btn:hover {
+    color: #333;
+}
+
+#event-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-top: 15px;
+    padding-right: 5px;
+}
+
+.event-list-item {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+}
+
+.event-list-item:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+.event-list-item.selected {
+    background-color: #e6f7ff;
+    border-color: #91d5ff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-list-item .event-title {
+    font-weight: bold;
+    color: #333;
+    flex-grow: 1;
+}
+
+.event-list-item .event-time {
+    font-size: 0.85em;
+    color: #777;
+    margin-left: 10px;
+}
+
+#event-summary {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+    min-height: 100px;
+    color: #495057;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+#event-summary h4 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+#event-summary p {
+    margin-bottom: 8px;
+}
+
+/* Estilos para los botones de acción en el panel */
+.panel-actions {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.panel-actions button {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.panel-actions .btn-add {
+    background-color: #28a745;
+    color: white;
+}
+.panel-actions .btn-add:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+.panel-actions .btn-edit {
+    background-color: #007bff;
+    color: white;
+}
+.panel-actions .btn-edit:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+.panel-actions .btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+.panel-actions .btn-delete:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+}
+
+/* --- Estilos para el Modal de Agregar/Editar Evento --- */
+.event-form-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease;
+}
+
+.event-form-modal-overlay.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.event-form-modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 90%;
+    text-align: left;
+}
+
+.event-form-modal-content h4 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.event-form-modal-content .form-group {
+    margin-bottom: 15px;
+}
+
+.event-form-modal-content label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.event-form-modal-content input[type="text"],
+.event-form-modal-content input[type="datetime-local"],
+.event-form-modal-content textarea,
+.event-form-modal-content select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.event-form-modal-content textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.event-form-modal-content .modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.event-form-modal-content .modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.event-form-modal-content .modal-buttons .btn-submit {
+    background-color: #4CAF50;
+    color: white;
+}
+.event-form-modal-content .modal-buttons .btn-submit:hover {
+    background-color: #45a049;
+}
+
+.event-form-modal-content .modal-buttons .btn-cancel {
+    background-color: #e0e0e0;
+    color: #333;
+}
+.event-form-modal-content .modal-buttons .btn-cancel:hover {
+    background-color: #c0c0c0;
+}
+
+
+/* Responsive adjustments */
+/* Compatibilidad con sidebar centralizado */
+body.sidebar-open .content-wrapper {
+    margin-left: 250px;
+}
+
+@media (max-width: 768px) {
+    body.sidebar-open .content-wrapper {
+        margin-left: 0;
+    }
+    
+    .main-content {
+        padding: 20px;
+        margin-right: 0 !important;
+    }
+
+    #calendar-container {
+        width: 98%;
+        padding: 15px;
+    }
+
+    .fc .fc-toolbar-title {
+        font-size: 1.5em;
+    }
+
+    .fc-button {
+        padding: 6px 10px;
+        font-size: 0.9em;
+    }
+
+    #event-details-panel {
+        width: 100%;
+        right: -100%;
+        top: auto;
+        bottom: 0;
+        height: 50vh;
+        border-top: 1px solid #e0e0e0;
+        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    #event-details-panel.open {
+        right: 0;
+    }
+
+    .event-form-modal-content {
+        max-width: 95%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .fc-toolbar {
+        flex-direction: column;
+        align-items: center;
+    }
+    .fc-toolbar-chunk {
+        margin-bottom: 10px;
+    }
+}

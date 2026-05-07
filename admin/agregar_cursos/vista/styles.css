@@ -1,0 +1,336 @@
+:root {
+  --azul: #3558d5;
+  --azul-claro: #d7e1ff;
+  --blanco: #fff;
+  --gris: #e9e9e9;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f6f9ff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.contenedor-principal {
+  margin: 30px;
+}
+
+h1 {
+  color: var(--azul);
+  font-size: 42px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Barra superior */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--azul);
+  padding: 5px 20px;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.logo {
+  height: 60px;
+  border-radius: 15px;
+}
+
+/* Sidebar retráctil a la izquierda */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  background-color: var(--azul);
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  box-shadow: 10px 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar.left {
+  left: 0;
+}
+
+.sidebar a {
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 18px;
+  color: var(--blanco);
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: var(--azul-claro);
+  color: black;
+}
+
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 36px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Botón de menú */
+.openbtn {
+  font-size: 20px;
+  background-color: var(--azul);
+  color: white;
+  padding: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: var(--azul);
+  color: white;
+  margin-top: auto;
+}
+
+/* Contenedor principal con margen para el sidebar */
+main.contenido {
+  margin-left: 0; /* ajusta según ancho sidebar cuando esté abierto */
+  padding: 30px;
+  background-color: var(--blanco);
+  min-height: calc(100vh - 120px); /* espacio para header y footer */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  /* margin-top: 20px; */
+}
+
+/* Formularios para agregar cursos y secretarias */
+form#form-curso,
+form#form-secre {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+/* Inputs y selects consistentes */
+form#form-curso input[type="text"],
+form#form-curso input[type="date"],
+form#form-curso input[type="time"],
+form#form-curso select {
+  padding: 10px 12px;
+  border: 1px solid var(--gris);
+  border-radius: 6px;
+  background-color: #fff;
+  font-size: 16px;
+}
+
+/* Enfoque accesible */
+form#form-curso input[type="text"]:focus,
+form#form-curso input[type="date"]:focus,
+form#form-curso input[type="time"]:focus,
+form#form-curso select:focus {
+  outline: none;
+  border-color: var(--azul);
+  box-shadow: 0 0 0 3px rgba(53, 88, 213, 0.15);
+}
+
+/* Botón submit del formulario de cursos */
+form#form-curso button[type="submit"] {
+  padding: 12px 24px;
+  background-color: var(--azul);
+  color: var(--blanco);
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+form#form-curso button[type="submit"]:hover { background-color: #2a44b8; }
+form#form-curso button[type="submit"]:disabled { opacity: .6; cursor: not-allowed; }
+
+/* Grupos en línea (reemplaza los inline-styles existentes) */
+form#form-curso .grupo-inline {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+/* Rango de fechas y horario */
+form#form-curso .grupo-fechas,
+form#form-curso .grupo-horas {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Fieldset de días de semana */
+form#form-curso fieldset {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--gris);
+  border-radius: 8px;
+  background: #fff;
+}
+form#form-curso legend {
+  color: var(--azul);
+  font-weight: 600;
+  padding: 0 6px;
+}
+form#form-curso fieldset label {
+  margin-right: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Nota explicativa */
+form#form-curso .nota {
+  font-size: 12px;
+  color: #666;
+  margin-top: 6px;
+}
+
+/* Tabla cursos */
+table.tabla-cursos {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+}
+
+table.tabla-cursos th,
+table.tabla-cursos td {
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--gris);
+  text-align: left;
+}
+
+table.tabla-cursos th {
+  background-color: var(--azul);
+  color: var(--blanco);
+  font-weight: 600;
+}
+
+table.tabla-cursos tr:nth-child(even) {
+  background-color: var(--azul-claro);
+}
+
+table.tabla-cursos tr:hover {
+  background-color: #b5c0f7;
+}
+
+/* Tabla secretarias */
+table.tabla-secre {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+table.tabla-secre th,
+table.tabla-secre td {
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--gris);
+  text-align: left;
+}
+
+table.tabla-secre th {
+  background-color: var(--azul);
+  color: var(--blanco);
+  font-weight: 600;
+}
+
+table.tabla-secre tr:nth-child(even) {
+  background-color: var(--azul-claro);
+}
+
+table.tabla-secre tr:hover {
+  background-color: #b5c0f7;
+}
+
+/* Botones dentro de las tablas */
+table.tabla-cursos button,
+table.tabla-secre button {
+  padding: 7px 14px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button.eliminar {
+  background-color: #d9534f;
+  color: white;
+}
+
+button.eliminar:hover {
+  background-color: #b52b27;
+}
+
+button.estatus {
+  background-color: var(--azul);
+  color: white;
+}
+
+button.estatus:hover {
+  background-color: #2a44b8;
+}
+
+/* Mejoras de enfoque y accesibilidad */
+form#form-curso input:focus,
+form#form-curso select:focus,
+form#form-curso button:focus,
+.sidebar a:focus,
+.openbtn:focus,
+.closebtn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(53, 88, 213, 0.2);
+}
+
+/* Estados deshabilitados */
+button:disabled,
+button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Hover suave para filas */
+table.tabla-cursos tr { transition: background-color 0.2s ease; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  main.contenido { margin: 15px; padding: 20px; }
+  .openbtn { padding: 14px; }
+  form#form-curso { gap: 10px; }
+  table.tabla-cursos th, table.tabla-cursos td { padding: 10px; }
+  form#form-curso .grupo-fechas,
+  form#form-curso .grupo-horas { gap: 6px; }
+  form#form-curso input,
+  form#form-curso select { width: 100%; }
+}

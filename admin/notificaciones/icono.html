@@ -1,0 +1,63 @@
+<!-- Icono de notificaciones -->
+<div style="position:relative;">
+  <button id="btn-noti">🔔</button>
+  <span id="noti-count" 
+        style="position:absolute;top:-8px;right:-8px;
+               background:red;color:white;
+               border-radius:50%;padding:2px 6px;font-size:12px;">
+    0
+  </span>
+</div>
+
+<!-- Contenedor donde aparecerán las notificaciones -->
+<div id="noti-list" 
+     style="display:none;position:absolute;top:40px;right:0;
+            background:#fff;border:1px solid #ccc;width:250px;
+            max-height:300px;overflow:auto;padding:10px;">
+</div>
+
+<script>
+// Función para cargar notificaciones
+function cargarNotificaciones() {
+  fetch("get_notificaciones.php")
+    .then(res => res.json())
+    .then(data => {
+      // Actualizamos contador
+      document.getElementById("noti-count").innerText = data.total;
+
+      // Construimos la lista
+      let html = "";
+      data.notificaciones.forEach(noti => {
+        html += `<div style="padding:6px;border-bottom:1px solid #eee;cursor:pointer;"
+                     onclick="marcarLeida(${noti.id_notificacion}, this)">
+                   <b>[${noti.tipo}]</b> ${noti.mensaje}
+                   <br><small>${noti.fecha}</small>
+                 </div>`;
+      });
+
+      document.getElementById("noti-list").innerHTML = html || "<em>No hay nuevas notificaciones</em>";
+    });
+}
+
+// Función para marcar como leída
+function marcarLeida(id, elem) {
+  fetch("marcar_leida.php", {
+    method: "POST",
+    headers: {"Content-Type": "application/x-www-form-urlencoded"},
+    body: "id=" + id
+  }).then(() => {
+    elem.style.background = "#eee"; // marcar visualmente
+    cargarNotificaciones(); // refrescar contador
+  });
+}
+
+// Recargar notificaciones cada 5 segundos
+setInterval(cargarNotificaciones, 5000);
+cargarNotificaciones();
+
+// Toggle para mostrar/ocultar la lista
+document.getElementById("btn-noti").addEventListener("click", () => {
+  const lista = document.getElementById("noti-list");
+  lista.style.display = lista.style.display === "none" ? "block" : "none";
+});
+</script>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Cursos API</title>
+</head>
+<body>
+    <h1>Testing Cursos Search API</h1>
+    <div id="results"></div>
+    
+    <script>
+        const resultsDiv = document.getElementById('results');
+        
+        // Test the cursos search endpoint
+        fetch('../logica/buscar_cursos.php?q=&page=1')
+            .then(response => {
+                console.log('Response status:', response.status);
+                return response.text(); // Get as text first to see raw response
+            })
+            .then(text => {
+                console.log('Raw response:', text);
+                try {
+                    const data = JSON.parse(text);
+                    console.log('Parsed JSON:', data);
+                    resultsDiv.innerHTML = `
+                        <h2>Test Results:</h2>
+                        <p><strong>Success:</strong> ${data.success}</p>
+                        <p><strong>Message:</strong> ${data.message || 'N/A'}</p>
+                        <p><strong>Data count:</strong> ${data.data ? data.data.length : 0}</p>
+                        <p><strong>Current page:</strong> ${data.currentPage || 'N/A'}</p>
+                        <p><strong>Total pages:</strong> ${data.pages || 'N/A'}</p>
+                        <p><strong>Total records:</strong> ${data.total || 'N/A'}</p>
+                        <h3>Sample Courses:</h3>
+                        <pre>${JSON.stringify(data.data ? data.data.slice(0, 2) : [], null, 2)}</pre>
+                    `;
+                } catch (e) {
+                    resultsDiv.innerHTML = `
+                        <h2>JSON Parse Error:</h2>
+                        <p>${e.message}</p>
+                        <h3>Raw Response:</h3>
+                        <pre>${text}</pre>
+                    `;
+                }
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+                resultsDiv.innerHTML = `
+                    <h2>Fetch Error:</h2>
+                    <p>${error.message}</p>
+                `;
+            });
+    </script>
+</body>
+</html>
