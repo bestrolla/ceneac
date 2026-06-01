@@ -115,7 +115,7 @@ abstract class BaseController {
     /**
      * Valida que el usuario esté autenticado
      */
-    protected function requireAuth(string $role = null): void {
+    protected function requireAuth(?string $role = null): void {
         if (!$this->session->isAuthenticated()) {
             $this->redirect(ROUTES['login'], ['error' => 'session_expired']);
         }
