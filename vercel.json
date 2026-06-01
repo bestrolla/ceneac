@@ -1,17 +1,7 @@
 {
   "version": 2,
   "builds": [
-    { "src": "index.php", "use": "@vercel/php" },
-    { "src": "login/**/*.php", "use": "@vercel/php" },
-    { "src": "admin/**/*.php", "use": "@vercel/php" },
-    { "src": "secretaria/**/*.php", "use": "@vercel/php" },
-    { "src": "estudiante/**/*.php", "use": "@vercel/php" },
-    { "src": "components/**/*.php", "use": "@vercel/php" },
-    { "src": "config/**/*.php", "use": "@vercel/php" },
-    { "src": "BBDD/**/*.php", "use": "@vercel/php" },
-    { "src": "verificacion/**/*.php", "use": "@vercel/php" },
-    { "src": "controlador/**/*.php", "use": "@vercel/php" },
-    { "src": "core/**/*.php", "use": "@vercel/php" }
+    { "src": "**/*.php", "use": "@vercel/php" }
   ],
   "routes": [
     {

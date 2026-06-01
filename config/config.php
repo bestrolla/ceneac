@@ -4,7 +4,14 @@
  * Este archivo contiene todas las configuraciones globales
  */
 
-function env($key, $default = null) {
+/**
+ * Obtener variable de entorno
+ *
+ * @param string $key
+ * @param mixed $default
+ * @return mixed
+ */
+function env(string $key, $default = null) {
     $value = getenv($key);
     return $value !== false ? $value : $default;
 }
@@ -117,7 +124,14 @@ if ($developmentMode) {
 }
 
 // Función para obtener configuración
-function getConfig($key, $default = null) {
+/**
+ * Obtener valor de configuración ya definido como constante
+ *
+ * @param string $key
+ * @param mixed $default
+ * @return mixed
+ */
+function getConfig(string $key, $default = null) {
     return defined($key) ? constant($key) : $default;
 }
 
