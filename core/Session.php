@@ -259,7 +259,7 @@ function getSession(): Session {
 }
 
 // Función helper para verificar acceso
-function requireAuth(string $role = null): void {
+function requireAuth(?string $role = null): void {
     $session = getSession();
     
     if (!$session->isAuthenticated()) {
