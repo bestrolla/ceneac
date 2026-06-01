@@ -1,9 +1,9 @@
 <?php
 class Database {
-    private $host = 'localhost';
-    private $db_name = 'ceneac';
-    private $username = 'root';
-    private $password = '';
+    private $host = 'bdvf1qrwayshdoalcmfx-mysql.services.clever-cloud.com';
+    private $db_name = 'bdvf1qrwayshdoalcmfx';
+    private $username = 'ukamfrdwwftoickt';
+    private $password = 'Q1A3abmdBewMH1KZrTA7';
     private $conn;
     private $transactionLevel = 0;
 
