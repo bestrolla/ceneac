@@ -3,7 +3,7 @@
   "routes": [
     {
       "src": "^/(.*\\.php)$",
-      "dest": "/$1"
+      "dest": "/api/index.php?path=/$1"
     },
     {
       "src": "^/(.*\\.(css|js|map|svg|png|jpg|jpeg|gif|ico|webp|ttf|woff|woff2|eot|otf|json|txt|html))$",
