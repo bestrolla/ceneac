@@ -129,6 +129,12 @@ class AuthController extends BaseController {
                 return $user;
             }
             
+            // Si la contraseña se guardó en texto plano, permitir login y migrar a hash
+            if ($storedPassword === $password) {
+                $this->migratePassword($user['id_usuario'], $password);
+                return $user;
+            }
+            
             // Si falla, intentar con el sistema ASCII (compatibilidad)
             $asciiPassword = Security::stringToAscii($password);
             if ($asciiPassword === $storedPassword) {
