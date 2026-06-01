@@ -58,34 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const loginForm = document.getElementById('loginForm');
   if (loginForm) {
-    loginForm.addEventListener('submit', function(e) {
-      // Validaciones del lado cliente
-      const usuario = this.usuario.value.trim();
-      const contrasena = this.contrasena.value;
-      
-      // Validar campos requeridos
-      if (!usuario || !contrasena) {
-        e.preventDefault();
-        showError('Usuario y contraseña son requeridos');
-        return;
-      }
-      
-      // Validar longitud mínima de contraseña
-      if (contrasena.length < 8) {
-        e.preventDefault();
-        showError('La contraseña debe tener al menos 8 caracteres');
-        return;
-      }
-      
-      // Validar formato de usuario (solo letras, números y guiones bajos)
-      const usernamePattern = /^[a-zA-Z0-9_]+$/;
-      if (!usernamePattern.test(usuario)) {
-        e.preventDefault();
-        showError('El usuario solo puede contener letras, números y guiones bajos');
-        return;
-      }
-      
-      // Mostrar indicador de carga
+    loginForm.addEventListener('submit', function() {
       const submitBtn = this.querySelector('button[type="submit"]');
       const loader = document.getElementById('formLoader');
       if (submitBtn && loader) {

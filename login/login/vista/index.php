@@ -91,13 +91,13 @@ $csrfToken = Security::generateCSRFToken();
         <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken) ?>">
         <div class="textbox">
           <label for="usuarioInput">Usuario</label>
-          <input type="text" name="usuario" id="usuarioInput" placeholder="Usuario" required
+          <input type="text" name="usuario" id="usuarioInput" placeholder="Usuario"
                  value="<?= htmlspecialchars($username) ?>">
         </div>
         
         <div class="textbox">
           <label for="passwordInput">Contraseña</label>
-          <input type="password" name="contrasena" placeholder="Contraseña" required id="passwordInput" minlength="8">
+          <input type="password" name="contrasena" placeholder="Contraseña" id="passwordInput">
           <button type="button" class="toggle-password" aria-label="Mostrar contraseña">
             <img src="/proto/login/login/vista/img/eye.svg" alt="Mostrar contraseña" class="password-icon" id="showPasswordIcon">
             <img src="/proto/login/login/vista/img/eye-slash.svg" alt="Ocultar contraseña" class="password-icon" id="hidePasswordIcon" style="display: none;">
