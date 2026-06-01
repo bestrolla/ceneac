@@ -26,7 +26,7 @@ $basePath = '../../../';
   <title>Calendario Simple - CENEAC Admin</title>
   
   <!-- Estilos específicos del calendario -->
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/style.css" />
   
   <!-- Estilos del sidebar centralizado -->
   <link rel="stylesheet" href="<?= $basePath ?>components/navigation/sidebar_styles.css" />
