@@ -1,22 +1,29 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "**/*.php",
-      "use": "@vercel/php"
-    }
+    { "src": "index.php", "use": "@vercel/php" },
+    { "src": "login/**/*.php", "use": "@vercel/php" },
+    { "src": "admin/**/*.php", "use": "@vercel/php" },
+    { "src": "secretaria/**/*.php", "use": "@vercel/php" },
+    { "src": "estudiante/**/*.php", "use": "@vercel/php" },
+    { "src": "components/**/*.php", "use": "@vercel/php" },
+    { "src": "config/**/*.php", "use": "@vercel/php" },
+    { "src": "BBDD/**/*.php", "use": "@vercel/php" },
+    { "src": "verificacion/**/*.php", "use": "@vercel/php" },
+    { "src": "controlador/**/*.php", "use": "@vercel/php" },
+    { "src": "core/**/*.php", "use": "@vercel/php" }
   ],
   "routes": [
     {
-      "src": "/(.*\\.php)$",
+      "src": "^/(.*\\.php)$",
       "dest": "/$1"
     },
     {
-      "src": "/(.*\\.(css|js|map|svg|png|jpg|jpeg|gif|ico|webp|ttf|woff|woff2|eot|otf|json|txt|html))$",
+      "src": "^/(.*\\.(css|js|map|svg|png|jpg|jpeg|gif|ico|webp|ttf|woff|woff2|eot|otf|json|txt|html))$",
       "dest": "/$1"
     },
     {
-      "src": "/(.*)",
+      "src": "^/(.*)$",
       "dest": "/index.php"
     }
   ]
