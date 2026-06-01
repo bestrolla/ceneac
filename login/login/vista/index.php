@@ -10,7 +10,7 @@ $session->start();
 $errorMessages = [
     'usuario_no_existe' => 'El usuario no existe en nuestro sistema',
     'contrasena_incorrecta' => 'Contraseña incorrecta para este usuario',
-    'invalid_input' => 'Usuario y contraseña son requeridos (mínimo 8 caracteres)',
+    'invalid_input' => 'Usuario y contraseña son requeridos',
     'system_error' => 'Error del sistema. Por favor intente más tarde',
     'too_many_attempts' => 'Demasiados intentos fallidos. Intente más tarde',
     'login_failed' => 'Usuario o contraseña incorrectos',
