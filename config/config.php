@@ -4,23 +4,28 @@
  * Este archivo contiene todas las configuraciones globales
  */
 
+function env($key, $default = null) {
+    $value = getenv($key);
+    return $value !== false ? $value : $default;
+}
+
 // Configuración de la base de datos
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'ceneac');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_CHARSET', 'utf8mb4');
+define('DB_HOST', env('DB_HOST', 'localhost'));
+define('DB_NAME', env('DB_NAME', 'ceneac'));
+define('DB_USER', env('DB_USER', 'root'));
+define('DB_PASS', env('DB_PASS', ''));
+define('DB_CHARSET', env('DB_CHARSET', 'utf8mb4'));
 
 // Configuración de la aplicación
-define('APP_NAME', 'CENEAC');
-define('APP_VERSION', '1.0.0');
-define('APP_URL', 'http://localhost/proto');
+define('APP_NAME', env('APP_NAME', 'CENEAC'));
+define('APP_VERSION', env('APP_VERSION', '1.0.0'));
+define('APP_URL', rtrim(env('APP_URL', 'http://localhost/proto'), '/'));
 define('APP_PATH', __DIR__ . '/..');
 
 // Configuración de sesión
-define('SESSION_NAME', 'CENEAC_SESSION');
-define('SESSION_LIFETIME', 3600); // 1 hora
-define('SESSION_PATH', '/');
+define('SESSION_NAME', env('SESSION_NAME', 'CENEAC_SESSION'));
+define('SESSION_LIFETIME', intval(env('SESSION_LIFETIME', 3600))); // 1 hora
+define('SESSION_PATH', env('SESSION_PATH', '/'));
 
 // Configuración de seguridad
 define('PASSWORD_ALGORITHM', PASSWORD_ARGON2ID);
@@ -102,7 +107,8 @@ define('LOG_LEVEL', 'INFO'); // DEBUG, INFO, WARNING, ERROR
 date_default_timezone_set('America/Caracas');
 
 // Configuración de errores (solo para desarrollo)
-if (defined('DEVELOPMENT_MODE') && DEVELOPMENT_MODE) {
+$developmentMode = filter_var(env('DEVELOPMENT_MODE', 'false'), FILTER_VALIDATE_BOOLEAN);
+if ($developmentMode) {
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
 } else {

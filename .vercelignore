@@ -1,0 +1,8 @@
+.vscode/
+README.md
+README_FIXES.md
+README_REFACTORIZACION.md
+database/
+logs/
+*.sql
+*.md
