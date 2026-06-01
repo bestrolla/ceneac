@@ -30,4 +30,6 @@ if (!file_exists($fullPath) || pathinfo($fullPath, PATHINFO_EXTENSION) !== 'php'
     exit;
 }
 
+// Ejecutar el archivo desde su propio directorio base para que los includes relativos funcionen
+chdir(dirname($fullPath));
 require $fullPath;
