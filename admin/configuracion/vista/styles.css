@@ -333,7 +333,7 @@ footer {
 }
 
 /* Panel de configuración mejorado */
-.config-panel {
+/* .config-panel {
   background: var(--blanco);
   padding: 3rem;
   margin: 2rem auto;
@@ -342,7 +342,7 @@ footer {
   width: 90%;
   box-shadow: var(--sombra-lg);
   animation: slideUp 0.5s ease-out;
-}
+} */
 
 .config-panel h2 {
   text-align: center;
