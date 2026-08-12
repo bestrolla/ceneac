@@ -1,11 +1,11 @@
 <?php
 class Database {
-    private $host = 'bdvf1qrwayshdoalcmfx-mysql.services.clever-cloud.com';
-    private $db_name = 'bdvf1qrwayshdoalcmfx';
-    private $username = 'ukamfrdwwftoickt';
-    private $password = 'Q1A3abmdBewMH1KZrTA7';
-    private $conn;
-    private $transactionLevel = 0;
+    private string $host = 'bdvf1qrwayshdoalcmfx-mysql.services.clever-cloud.com';
+    private string $db_name = 'bdvf1qrwayshdoalcmfx';
+    private string $username = 'ukamfrdwwftoickt';
+    private string $password = 'Q1A3abmdBewMH1KZrTA7';
+    private ?PDO $conn = null;
+    private int $transactionLevel = 0;
 
     public function __construct(array $config = []) {
         $this->host = $config['host'] ?? 'localhost';
