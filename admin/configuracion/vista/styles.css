@@ -154,7 +154,7 @@ body {
 }
 
 /* Contenido principal mejorado */
-.main-content {
+/* .main-content {
   flex: 1;
   padding: 20px;
   margin: 10px auto 40px;
@@ -164,7 +164,7 @@ body {
   border-radius: var(--radio-lg);
   box-shadow: var(--sombra-md);
   animation: slideUp 0.5s ease-out;
-}
+} */
 
 @keyframes slideUp {
   from {
