@@ -15,29 +15,72 @@
   --gris-fondo: #f4f7f6;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: #f6f9ff;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 /* Contenedor principal del módulo */
 .contenedor-principal {
   transition: margin-left 0.3s ease;
   margin-left: 0;
   min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 main.contenido {
-  margin: 30px;
-  padding: 30px;
+  margin: 100px auto 40px;
+  padding: 40px;
   background-color: var(--blanco);
-  min-height: calc(100vh - 120px);
+  min-height: calc(100vh - 140px);
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   border-radius: 10px;
-  margin-top: 80px; /* Espacio para el botón de menú */
+  max-width: 1200px;
+  width: 90%;
 }
 
+/* Títulos centrados */
 h1 {
   color: var(--azul);
   font-size: 42px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: center;
+  letter-spacing: -0.5px;
   font-family: 'Inter', sans-serif;
+}
+
+h2 {
+  color: var(--azul);
+  font-size: 28px;
+  margin-bottom: 25px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+  font-family: 'Inter', sans-serif;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: var(--azul);
+  border-radius: 2px;
 }
 
 /* ===============================================
@@ -46,14 +89,20 @@ h1 {
 form#form-profe {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 20px;
   margin-bottom: 30px;
+  padding: 25px;
+  background-color: #fafbfc;
+  border-radius: 10px;
+  border: 1px solid var(--gris);
+  justify-content: center;
+  align-items: center;
 }
 
 form#form-profe input[type="text"],
 form#form-profe input[type="email"] {
-  flex: 1 1 200px;
-  padding: 10px 12px;
+  flex: 1 1 250px;
+  padding: 12px 15px;
   border: 1px solid var(--gris);
   border-radius: 6px;
   font-size: 16px;
@@ -65,11 +114,11 @@ form#form-profe input[type="text"]:focus,
 form#form-profe input[type="email"]:focus {
   border-color: var(--azul);
   outline: none;
-  box-shadow: 0 0 5px rgba(52, 120, 245, 0.3);
+  box-shadow: 0 0 0 3px rgba(52, 120, 245, 0.1);
 }
 
 form#form-profe button[type="submit"] {
-  padding: 12px 25px;
+  padding: 12px 30px;
   background-color: var(--azul);
   border: none;
   color: var(--blanco);
@@ -78,12 +127,13 @@ form#form-profe button[type="submit"] {
   cursor: pointer;
   font-family: 'Inter', sans-serif;
   transition: all 0.3s ease;
+  min-width: 150px;
 }
 
 form#form-profe button[type="submit"]:hover {
   background-color: var(--azul-oscuro);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 .btn-historial {
@@ -102,13 +152,8 @@ form#form-profe button[type="submit"]:hover {
 
 .btn-historial:hover {
   background-color: #1a4d8a;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-form#form-profe .btn-historial {
-  margin-top: 0;
-  align-self: center;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 /* ===============================================
@@ -117,32 +162,36 @@ form#form-profe .btn-historial {
 .table-container {
   width: 100%;
   overflow-x: auto;
-  margin-top: 20px;
+  margin: 20px auto;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
 table.tabla-profesor {
   width: 100%;
-  min-width: 500px;
+  min-width: 600px;
   border-collapse: collapse;
   font-size: 14px;
   font-family: 'Inter', sans-serif;
   border-radius: 10px;
   overflow: hidden;
+  margin: 0 auto;
 }
 
 table.tabla-profesor th,
 table.tabla-profesor td {
-  padding: 8px 10px;
+  padding: 12px 15px;
   border-bottom: 1px solid var(--gris);
-  text-align: left;
+  text-align: center;
   white-space: nowrap;
 }
 
 /* Anchos de columnas */
 table.tabla-profesor th:nth-child(1),
-table.tabla-profesor td:nth-child(1) { min-width: 150px; }
+table.tabla-profesor td:nth-child(1) { 
+  min-width: 150px; 
+  text-align: left;
+}
 
 table.tabla-profesor th:nth-child(2),
 table.tabla-profesor td:nth-child(2) { min-width: 100px; }
@@ -154,12 +203,19 @@ table.tabla-profesor th:nth-child(4),
 table.tabla-profesor td:nth-child(4) { min-width: 80px; }
 
 table.tabla-profesor th:nth-child(5),
-table.tabla-profesor td:nth-child(5) { min-width: 180px; }
+table.tabla-profesor td:nth-child(5) { min-width: 200px; }
 
 table.tabla-profesor th {
   background-color: var(--azul);
   color: var(--blanco);
   font-weight: 600;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+table.tabla-profesor tr {
+  transition: background-color 0.2s ease;
 }
 
 table.tabla-profesor tr:nth-child(even) {
@@ -168,16 +224,22 @@ table.tabla-profesor tr:nth-child(even) {
 
 table.tabla-profesor tr:hover {
   background-color: #b5c0f7;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* ===============================================
    BOTONES DE ACCIONES EN LA TABLA
    =============================================== */
+table.tabla-profesor td div {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
 table.tabla-profesor button {
-  padding: 5px 8px;
-  margin-right: 4px;
+  padding: 6px 10px;
+  margin: 0 2px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -187,6 +249,10 @@ table.tabla-profesor button {
   transition: all 0.3s ease;
 }
 
+table.tabla-profesor button:hover {
+  transform: scale(1.05);
+}
+
 .btn-info {
   background-color: #17a2b8;
   color: white;
@@ -194,7 +260,6 @@ table.tabla-profesor button {
 
 .btn-info:hover {
   background-color: #138496;
-  transform: scale(1.05);
 }
 
 .btn-ausentar {
@@ -204,7 +269,6 @@ table.tabla-profesor button {
 
 .btn-ausentar:hover {
   background-color: #e0a800;
-  transform: scale(1.05);
 }
 
 .btn-reactivar {
@@ -214,27 +278,15 @@ table.tabla-profesor button {
 
 .btn-reactivar:hover {
   background-color: #218838;
-  transform: scale(1.05);
 }
 
 .btn-eliminar {
   background-color: #dc3545;
   color: white;
-  padding: 5px 10px;
-  margin-left: 5px;
 }
 
 .btn-eliminar:hover {
   background-color: #c82333;
-  transform: scale(1.05);
-}
-
-/* Contenedor de acciones */
-table.tabla-profesor td div {
-  display: flex;
-  gap: 3px;
-  flex-wrap: wrap;
-  align-items: center;
 }
 
 /* ===============================================
@@ -242,8 +294,8 @@ table.tabla-profesor td div {
    =============================================== */
 .estado-badge {
   display: inline-block;
-  padding: 4px 8px;
-  border-radius: 12px;
+  padding: 5px 10px;
+  border-radius: 15px;
   font-size: 11px;
   font-weight: 600;
   font-family: 'Inter', sans-serif;
@@ -269,21 +321,25 @@ table.tabla-profesor td div {
 .alert-success {
   background-color: #d4edda;
   color: #155724;
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 6px;
+  margin: 20px auto;
   border: 1px solid #c3e6cb;
   font-family: 'Inter', sans-serif;
+  text-align: center;
+  max-width: 600px;
 }
 
 .alert-error {
   background-color: #f8d7da;
   color: #721c24;
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 6px;
+  margin: 20px auto;
   border: 1px solid #f5c6cb;
   font-family: 'Inter', sans-serif;
+  text-align: center;
+  max-width: 600px;
 }
 
 /* ===============================================
@@ -333,6 +389,11 @@ table.tabla-profesor td div {
   margin: 0;
   font-size: 24px;
   font-family: 'Inter', sans-serif;
+  color: white;
+}
+
+.modal-header h2::after {
+  display: none;
 }
 
 .close {
@@ -377,8 +438,8 @@ table.tabla-profesor td div {
 
 .info-item span {
   background-color: #f8f9fa;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 12px;
+  border-radius: 6px;
   border-left: 3px solid var(--azul);
   font-size: 16px;
   font-family: 'Inter', sans-serif;
@@ -386,7 +447,7 @@ table.tabla-profesor td div {
 
 .modal-footer {
   padding: 20px 30px;
-  text-align: right;
+  text-align: center;
   border-top: 1px solid #eee;
   border-radius: 0 0 10px 10px;
 }
@@ -395,7 +456,7 @@ table.tabla-profesor td div {
   background-color: var(--azul);
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 25px;
   border-radius: 5px;
   cursor: pointer;
   font-weight: 600;
@@ -405,8 +466,8 @@ table.tabla-profesor td div {
 
 .btn-cerrar:hover {
   background-color: var(--azul-oscuro);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 /* Estados en el modal */
@@ -420,7 +481,7 @@ table.tabla-profesor td div {
    =============================================== */
 footer {
   text-align: center;
-  padding: 10px;
+  padding: 20px;
   background-color: var(--azul);
   color: white;
   margin-top: auto;
@@ -428,17 +489,52 @@ footer {
 }
 
 /* ===============================================
+   ACCESIBILIDAD
+   =============================================== */
+form#form-profe input:focus,
+form#form-profe button:focus,
+.btn-historial:focus,
+.btn-info:focus,
+.btn-ausentar:focus,
+.btn-reactivar:focus,
+.btn-eliminar:focus,
+.btn-cerrar:focus,
+.close:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 120, 245, 0.2);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===============================================
    DISEÑO RESPONSIVE
    =============================================== */
 @media (max-width: 768px) {
   main.contenido {
-    margin: 15px;
+    margin: 90px auto 20px;
     padding: 20px;
-    margin-top: 70px;
+    width: 95%;
   }
   
   h1 {
-    font-size: 28px;
+    font-size: 32px;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
+  
+  form#form-profe {
+    padding: 20px;
+    gap: 15px;
+  }
+  
+  form#form-profe input[type="text"],
+  form#form-profe input[type="email"] {
+    flex: 1 1 100%;
   }
   
   .modal-content {
@@ -459,29 +555,50 @@ footer {
     padding: 20px;
   }
   
-  form#form-profe input[type="text"],
-  form#form-profe input[type="email"] {
-    flex: 1 1 100%;
-  }
-  
   table.tabla-profesor {
     font-size: 12px;
   }
   
   table.tabla-profesor th,
   table.tabla-profesor td {
-    padding: 6px 8px;
+    padding: 10px;
+    font-size: 12px;
   }
 }
 
 @media (max-width: 480px) {
   main.contenido {
-    margin: 10px;
+    margin: 80px auto 15px;
     padding: 15px;
+  }
+  
+  h1 {
+    font-size: 28px;
+  }
+  
+  h2 {
+    font-size: 22px;
+  }
+  
+  form#form-profe {
+    flex-direction: column;
+    padding: 15px;
+  }
+  
+  form#form-profe button[type="submit"],
+  .btn-historial {
+    width: 100%;
+    margin-left: 0;
   }
   
   .table-container {
     margin-top: 15px;
+  }
+  
+  table.tabla-profesor th,
+  table.tabla-profesor td {
+    padding: 8px;
+    font-size: 11px;
   }
   
   table.tabla-profesor button {
