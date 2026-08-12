@@ -176,8 +176,8 @@ $csrfToken = Security::generateCSRFToken();
     <aside class="sticky-note">
       <h3>📌 Credenciales de prueba</h3>
       <ul>
-        <li><strong>Usuario:</strong> <code>admin</code></li>
-        <li><strong>Password:</strong> <code>123456</code></li>
+        <li><strong>Usuario Admin:</strong> <code>admin</code></li>
+        <li><strong>Password Admin:</strong> <code>AdminCeneac2026!</code></li>
       </ul>
     </aside>
 
