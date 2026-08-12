@@ -125,7 +125,7 @@ footer {
 /* Contenido principal */
 .contenedor-principal {
   flex: 1;
-  padding: 40px;
+  /* padding: 0px; */
   box-sizing: border-box;
   /* background-color: var(--blanco); */
   border-radius: 10px;
