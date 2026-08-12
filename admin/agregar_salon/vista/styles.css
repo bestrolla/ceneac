@@ -127,10 +127,10 @@ footer {
   flex: 1;
   padding: 40px;
   box-sizing: border-box;
-  background-color: var(--blanco);
+  /* background-color: var(--blanco); */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 100px auto 40px;
+  margin: 10px auto 10px;
   max-width: 1200px;
   width: 90%;
 }
