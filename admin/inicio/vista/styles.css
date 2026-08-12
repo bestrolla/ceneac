@@ -226,7 +226,7 @@ form.form-programar input[type="date"]:focus {
 
 form.form-programar button.btn-submit {
   grid-column: 1 / -1;
-  padding: 14px 32px;
+  padding: 10px 20px;
   background: var(--azul);
   border: none;
   color: var(--blanco);
