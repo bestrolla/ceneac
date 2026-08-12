@@ -1,8 +1,19 @@
 :root {
   --azul: #3558d5;
+  --azul-oscuro: #2a44b8;
   --azul-claro: #d7e1ff;
-  --blanco: #fff;
+  --azul-muy-claro: #f0f4ff;
+  --blanco: #ffffff;
   --gris: #e9e9e9;
+  --gris-oscuro: #6b7280;
+  --gris-fondo: #f8fafc;
+  --sombra-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --sombra-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --sombra-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+  --radio-sm: 8px;
+  --radio-md: 12px;
+  --radio-lg: 16px;
+  --transicion: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -12,15 +23,16 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f6f9ff;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #f6f9ff 0%, #eef2ff 100%);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   line-height: 1.6;
+  color: #1f2937;
 }
 
-/* Barra superior */
+/* Barra superior mejorada */
 .top-bar {
   position: fixed;
   top: 0;
@@ -30,18 +42,24 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--azul);
-  padding: 10px 25px;
-  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, var(--azul) 0%, var(--azul-oscuro) 100%);
+  padding: 0 30px;
+  box-shadow: var(--sombra-md);
   z-index: 100;
+  backdrop-filter: blur(10px);
 }
 
 .logo {
-  height: 50px;
-  border-radius: 10px;
+  height: 45px;
+  border-radius: var(--radio-sm);
+  transition: transform var(--transicion);
 }
 
-/* Sidebar retráctil a la izquierda */
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* Sidebar mejorado */
 .sidebar {
   height: 100%;
   width: 0;
@@ -49,26 +67,47 @@ body {
   z-index: 1001;
   top: 0;
   left: 0;
-  background-color: var(--azul);
+  background: linear-gradient(180deg, var(--azul) 0%, var(--azul-oscuro) 100%);
   overflow-x: hidden;
-  transition: 0.3s;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   padding-top: 80px;
-  box-shadow: 10px 0 15px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--sombra-lg);
 }
 
 .sidebar a {
-  padding: 14px 25px;
+  padding: 15px 30px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 17px;
   color: var(--blanco);
-  display: block;
-  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all var(--transicion);
+  border-left: 3px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: rgba(255, 255, 255, 0.1);
+  transition: width var(--transicion);
 }
 
 .sidebar a:hover {
   background-color: var(--azul-claro);
-  color: black;
-  padding-left: 30px;
+  color: #1f2937;
+  border-left: 3px solid white;
+  padding-left: 35px;
+}
+
+.sidebar a:hover::before {
+  width: 100%;
 }
 
 .closebtn {
@@ -76,60 +115,89 @@ body {
   top: 15px;
   right: 15px;
   font-size: 36px;
-  background: none;
+  background: rgba(255, 255, 255, 0.1);
   border: none;
   color: white;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  transition: background-color 0.3s;
+  transition: all var(--transicion);
 }
 
 .closebtn:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
 }
 
-/* Botón de menú */
+/* Botón de menú mejorado */
 .openbtn {
-  font-size: 20px;
-  background-color: var(--azul);
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.1);
   color: white;
   padding: 12px 20px;
-  border: none;
+  border: 2px solid rgba(255, 255, 255, 0.3);
   cursor: pointer;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  border-radius: var(--radio-sm);
+  transition: all var(--transicion);
+  backdrop-filter: blur(5px);
 }
 
 .openbtn:hover {
-  background-color: #2a44b8;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  box-shadow: var(--sombra-sm);
 }
 
-/* Contenido principal */
+/* Contenido principal mejorado */
 .main-content {
   flex: 1;
   padding: 40px;
   margin: 100px auto 40px;
   max-width: 1200px;
   width: 90%;
-  background-color: var(--blanco);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: var(--blanco);
+  border-radius: var(--radio-lg);
+  box-shadow: var(--sombra-md);
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .main-content h1 {
   font-size: 2.5rem;
-  font-weight: bold;
+  font-weight: 700;
   color: var(--azul);
   text-align: center;
   margin-bottom: 30px;
   letter-spacing: -0.5px;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.main-content h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--azul), var(--azul-claro));
+  border-radius: 2px;
 }
 
 .header {
@@ -137,73 +205,100 @@ body {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   gap: 20px;
+  padding: 20px;
+  background: var(--azul-muy-claro);
+  border-radius: var(--radio-md);
 }
 
 p {
-  margin-top: 5px;
-  color: #888;
+  color: var(--gris-oscuro);
   text-align: center;
+  font-size: 15px;
 }
 
-/* Botón agregar */
+/* Botón agregar mejorado */
 .add-btn {
-  background-color: var(--azul);
+  background: linear-gradient(135deg, var(--azul) 0%, var(--azul-oscuro) 100%);
   color: white;
-  padding: 12px 25px;
+  padding: 14px 28px;
   border: none;
-  font-weight: bold;
-  border-radius: 6px;
+  font-weight: 600;
+  border-radius: var(--radio-sm);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transicion);
   font-size: 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--sombra-sm);
+}
+
+.add-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
 }
 
 .add-btn:hover {
-  background-color: #2a4ab3;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  box-shadow: var(--sombra-md);
 }
 
-/* Tabla */
+.add-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Tabla mejorada */
 .table-container {
   width: 100%;
   overflow-x: auto;
   margin: 20px auto;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radio-md);
+  box-shadow: var(--sombra-md);
+  background: var(--blanco);
 }
 
 .student-table {
   width: 100%;
   min-width: 600px;
-  border-collapse: collapse;
-  background-color: white;
+  border-collapse: separate;
+  border-spacing: 0;
 }
 
 .student-table th,
 .student-table td {
-  padding: 14px 18px;
-  border: 1px solid var(--gris);
+  padding: 16px 20px;
   text-align: center;
+  border-bottom: 1px solid var(--gris);
 }
 
 .student-table th {
-  background-color: var(--azul-claro);
-  font-weight: bold;
+  background: linear-gradient(135deg, var(--azul-claro) 0%, #c5d4ff 100%);
+  font-weight: 700;
   color: var(--azul);
   text-transform: uppercase;
   font-size: 13px;
   letter-spacing: 0.5px;
+  border-bottom: 3px solid var(--azul);
 }
 
 .student-table tr {
-  transition: background-color 0.2s ease;
+  transition: all var(--transicion);
 }
 
-.student-table tr:hover {
-  background-color: #f0f4ff;
+.student-table tbody tr:hover {
+  background-color: var(--azul-muy-claro);
+  transform: scale(1.01);
+  box-shadow: var(--sombra-sm);
 }
 
 .icons {
@@ -215,93 +310,114 @@ p {
 
 .icons img {
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: all var(--transicion);
+  opacity: 0.7;
+  padding: 5px;
+  border-radius: 50%;
 }
 
 .icons img:hover {
   transform: scale(1.2);
+  opacity: 1;
+  background: var(--azul-claro);
 }
 
-/* Footer */
+/* Footer mejorado */
 footer {
   text-align: center;
-  padding: 20px;
-  background-color: var(--azul);
+  padding: 25px;
+  background: linear-gradient(135deg, var(--azul) 0%, var(--azul-oscuro) 100%);
   color: white;
   margin-top: auto;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Panel de configuración */
+/* Panel de configuración mejorado */
 .config-panel {
-  background-color: #fff;
-  border: 1px solid var(--gris);
-  padding: 2.5rem;
+  background: var(--blanco);
+  padding: 3rem;
   margin: 2rem auto;
-  border-radius: 12px;
+  border-radius: var(--radio-lg);
   max-width: 450px;
   width: 90%;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--sombra-lg);
+  animation: slideUp 0.5s ease-out;
 }
 
 .config-panel h2 {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   color: var(--azul);
   font-size: 28px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.config-panel h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: var(--azul);
+  border-radius: 2px;
 }
 
 .config-form label {
   display: block;
   margin-bottom: 8px;
-  font-weight: bold;
-  color: #444;
+  font-weight: 600;
+  color: #374151;
+  font-size: 14px;
 }
 
 .config-form input[type="text"],
 .config-form input[type="password"] {
   width: 100%;
-  padding: 12px 15px;
-  margin-bottom: 15px;
-  border: 1px solid var(--gris);
-  border-radius: 8px;
-  box-sizing: border-box;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  border: 2px solid var(--gris);
+  border-radius: var(--radio-sm);
   font-size: 16px;
-  transition: border-color 0.3s ease;
+  transition: all var(--transicion);
+  background: var(--gris-fondo);
 }
 
 .config-form input:focus {
   outline: none;
   border-color: var(--azul);
-  box-shadow: 0 0 0 3px rgba(53, 88, 213, 0.1);
+  background: var(--blanco);
+  box-shadow: 0 0 0 4px rgba(53, 88, 213, 0.1);
 }
 
 .config-form button[type="submit"] {
-  margin-top: 20px;
   width: 100%;
-  padding: 14px;
-  background-color: var(--azul);
+  padding: 15px;
+  background: linear-gradient(135deg, var(--azul) 0%, var(--azul-oscuro) 100%);
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radio-sm);
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 16px;
-  transition: all 0.3s ease;
+  transition: all var(--transicion);
+  position: relative;
+  overflow: hidden;
 }
 
 .config-form button[type="submit"]:hover {
-  background-color: #2c47b8;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  box-shadow: var(--sombra-md);
 }
 
-/* Textbox contenedor para input y botón del ojo */
+/* Textbox y toggle password mejorados */
 .textbox {
   position: relative;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-/* Botón del ojo */
 .toggle-password {
   position: absolute;
   right: 15px;
@@ -310,62 +426,65 @@ footer {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
-  width: 30px;
-  height: 30px;
+  padding: 5px;
+  width: 35px;
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  transition: background-color 0.3s;
+  transition: all var(--transicion);
 }
 
 .toggle-password:hover {
-  background-color: var(--gris);
+  background: var(--azul-claro);
 }
 
 .password-icon {
   width: 20px;
   height: 20px;
-  opacity: 0.7;
-  transition: opacity 0.3s;
+  opacity: 0.5;
+  transition: opacity var(--transicion);
 }
 
 .toggle-password:hover .password-icon {
   opacity: 1;
 }
 
-/* Mensajes de configuración */
+/* Mensajes mejorados */
 .config-message {
   margin-top: 20px;
   padding: 15px;
-  border-radius: 6px;
-  font-weight: bold;
+  border-radius: var(--radio-sm);
+  font-weight: 600;
   text-align: center;
+  animation: slideUp 0.3s ease-out;
 }
 
 .config-message.success {
-  background-color: #d4edda;
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
   color: #155724;
-  border: 1px solid #c3e6cb;
+  border: 1px solid #b8daff;
+  box-shadow: var(--sombra-sm);
 }
 
 .config-message.error {
-  background-color: #f8d7da;
+  background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
   color: #721c24;
   border: 1px solid #f5c6cb;
+  box-shadow: var(--sombra-sm);
 }
 
-/* Mensaje de error */
 .error-message {
-  color: red;
-  font-size: 0.9rem;
+  color: #dc3545;
+  font-size: 0.85rem;
   margin-top: 5px;
   display: none;
   text-align: center;
+  font-weight: 500;
 }
 
-/* Accesibilidad */
+/* Accesibilidad mejorada */
 .config-form input:focus,
 .config-form button:focus,
 .add-btn:focus,
@@ -373,15 +492,35 @@ footer {
 .openbtn:focus,
 .closebtn:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(53, 88, 213, 0.2);
+  box-shadow: 0 0 0 4px rgba(53, 88, 213, 0.2);
+  border-color: var(--azul);
 }
 
 button:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
+  transform: none !important;
 }
 
-/* Responsive */
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gris-fondo);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--azul-claro);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--azul);
+}
+
+/* Responsive mejorado */
 @media (max-width: 768px) {
   .main-content {
     margin: 90px auto 20px;
@@ -390,12 +529,12 @@ button:disabled {
   }
   
   .top-bar {
-    padding: 10px 15px;
+    padding: 10px 20px;
   }
   
   .openbtn {
-    padding: 10px 16px;
-    font-size: 18px;
+    padding: 10px 15px;
+    font-size: 16px;
   }
   
   .main-content h1 {
@@ -408,15 +547,19 @@ button:disabled {
     text-align: center;
   }
   
+  .add-btn {
+    width: 100%;
+  }
+  
   .student-table th,
   .student-table td {
-    padding: 10px;
+    padding: 12px;
     font-size: 14px;
   }
   
   .config-panel {
     width: 95%;
-    padding: 1.5rem;
+    padding: 2rem;
   }
 }
 
@@ -436,21 +579,26 @@ button:disabled {
   
   .student-table th,
   .student-table td {
-    padding: 8px;
+    padding: 10px;
     font-size: 12px;
   }
   
-  .add-btn {
-    width: 100%;
-    text-align: center;
+  .icons {
+    gap: 10px;
+  }
+  
+  .icons img {
+    width: 20px;
+    height: 20px;
   }
   
   .config-panel {
-    padding: 1rem;
+    padding: 1.5rem;
   }
   
   .config-form input[type="text"],
   .config-form input[type="password"] {
     font-size: 14px;
+    padding: 12px;
   }
 }
