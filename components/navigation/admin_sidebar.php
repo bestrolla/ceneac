@@ -72,11 +72,6 @@ function renderAdminSidebar($currentPage = '', $basePath = '../../') {
             'url' => $basePath . 'admin/Calendario/vista/calendario_principal.php',
             'icon' => '📅'
         ],
-        'lista_espera' => [
-            'title' => 'Lista de Espera',
-            'url' => $basePath . 'admin/Lista de espera/Frontend.html',
-            'icon' => '⏳'
-        ],
         'configuracion' => [
             'title' => 'Configuración',
             'url' => $basePath . 'admin/configuracion/vista/configuracion.php',
