@@ -18,7 +18,7 @@ function verificarAcceso($rolEsperado, $redirect = true) {
     // Verificar si está autenticado
     if (!$session->isAuthenticated()) {
         if ($redirect) {
-            header("Location: /proto/login/login/vista/index.php?error=session_expired");
+            header("Location: /login/login/vista/index.php?error=session_expired");
             exit;
         }
         return false;
@@ -27,7 +27,7 @@ function verificarAcceso($rolEsperado, $redirect = true) {
     // Verificar rol específico
     if (!$session->hasRole($rolEsperado)) {
         if ($redirect) {
-            header("Location: /proto/login/login/vista/index.php?error=access_denied");
+            header("Location: /login/login/vista/index.php?error=access_denied");
             exit;
         }
         return false;
@@ -49,7 +49,7 @@ function verificarAccesoMultiple($rolesPermitidos, $redirect = true) {
     // Verificar si está autenticado
     if (!$session->isAuthenticated()) {
         if ($redirect) {
-            header("Location: /proto/login/login/vista/index.php?error=session_expired");
+            header("Location: /login/login/vista/index.php?error=session_expired");
             exit;
         }
         return false;
@@ -58,7 +58,7 @@ function verificarAccesoMultiple($rolesPermitidos, $redirect = true) {
     // Verificar si tiene alguno de los roles permitidos
     if (!$session->hasAnyRole($rolesPermitidos)) {
         if ($redirect) {
-            header("Location: /proto/login/login/vista/index.php?error=access_denied");
+            header("Location: /login/login/vista/index.php?error=access_denied");
             exit;
         }
         return false;
@@ -76,7 +76,7 @@ if (!function_exists('requireAuth')) {
         $session->start();
         
         if (!$session->isAuthenticated()) {
-            header("Location: /proto/login/login/vista/index.php?error=session_expired");
+            header("Location: /login/login/vista/index.php?error=session_expired");
             exit;
         }
     }

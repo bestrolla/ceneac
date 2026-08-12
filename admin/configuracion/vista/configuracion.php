@@ -24,7 +24,7 @@ $basePath = '../../../';
   
   <!-- Estilos específicos de la página -->
   <link rel="stylesheet" href="styles.css">
-  <link rel="shortcut icon" href="/proto/login/login/vista/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/login/login/vista/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 
@@ -54,8 +54,8 @@ $basePath = '../../../';
       <label for="nueva_contrasena">Nueva contraseña:</label>
       <input type="password" id="nueva_contrasena" name="nueva_contrasena" required minlength="8">
       <button type="button" class="toggle-password" aria-label="Mostrar contraseña">
-        <img src="/proto/login/login/vista/img/eye.svg" alt="Mostrar contraseña" class="password-icon" id="showPasswordIcon1">
-        <img src="/proto/login/login/vista/img/eye-slash.svg" alt="Ocultar contraseña" class="password-icon" id="hidePasswordIcon1" style="display: none;">
+        <img src="/login/login/vista/img/eye.svg" alt="Mostrar contraseña" class="password-icon" id="showPasswordIcon1">
+        <img src="/login/login/vista/img/eye-slash.svg" alt="Ocultar contraseña" class="password-icon" id="hidePasswordIcon1" style="display: none;">
       </button>
     </div>
 
@@ -64,8 +64,8 @@ $basePath = '../../../';
       <label for="confirmar_contrasena">Confirmar contraseña:</label>
       <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" required minlength="8">
       <button type="button" class="toggle-password" aria-label="Mostrar contraseña">
-        <img src="/proto/login/login/vista/img/eye.svg" alt="Mostrar contraseña" class="password-icon" id="showPasswordIcon2">
-        <img src="/proto/login/login/vista/img/eye-slash.svg" alt="Ocultar contraseña" class="password-icon" id="hidePasswordIcon2" style="display: none;">
+        <img src="/login/login/vista/img/eye.svg" alt="Mostrar contraseña" class="password-icon" id="showPasswordIcon2">
+        <img src="/login/login/vista/img/eye-slash.svg" alt="Ocultar contraseña" class="password-icon" id="hidePasswordIcon2" style="display: none;">
       </button>
     </div>
 

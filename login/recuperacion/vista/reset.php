@@ -105,7 +105,7 @@ $csrfToken = Security::generateCSRFToken();
                 <div class="alert alert-danger">
                     El enlace de recuperación no es válido o ha expirado.
                 </div>
-                <a href="/proto/login/login/vista/index.php" class="btn" style="display: inline-block; text-decoration: none; text-align: center;">Volver al Login</a>
+                <a href="/login/login/vista/index.php" class="btn" style="display: inline-block; text-decoration: none; text-align: center;">Volver al Login</a>
             <?php endif; ?>
         </div>
         
@@ -116,12 +116,12 @@ $csrfToken = Security::generateCSRFToken();
 
     <footer class="footer">
         <div class="footer-links">
-            <a href="/proto/inicio">Inicio</a>
-            <a href="/proto/servicios">Servicios</a>
-            <a href="/proto/portafolio">Portafolio</a>
-            <a href="/proto/contacto">Contacto</a>
-            <a href="/proto/terminos">Términos y condiciones</a>
-            <a href="/proto/privacidad">Política de privacidad</a>
+            <a href="/inicio">Inicio</a>
+            <a href="/servicios">Servicios</a>
+            <a href="/portafolio">Portafolio</a>
+            <a href="/contacto">Contacto</a>
+            <a href="/terminos">Términos y condiciones</a>
+            <a href="/privacidad">Política de privacidad</a>
         </div>
         <div class="footer-copyright">
             © 2025 Ceneac Producciones. Todos los derechos reservados.

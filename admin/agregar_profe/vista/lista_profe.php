@@ -26,7 +26,7 @@ $basePath = '../../../';
     <!-- Estilos específicos del módulo (solo elementos propios, sin navegación) -->
     <link rel="stylesheet" href="profesor_module_styles.css" />
     
-    <link rel="shortcut icon" href="/proto/login/login/vista/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/login/login/vista/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 

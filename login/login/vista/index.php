@@ -151,7 +151,7 @@ $csrfToken = Security::generateCSRFToken();
   </footer>
 
   <script src="script.js"></script>
-  <!-- <script src="/proto/login/login/vista/depuracion.js"></script> -->
+  <!-- <script src="depuracion.js"></script> -->
 
 </body>
 </html>

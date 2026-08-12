@@ -18,7 +18,7 @@ $basePath = '../../../';
 // if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 //     // Redirige al login de tu amigo si no hay sesión
 //     // RUTA ABSOLUTA PARA REDIRECCIÓN
-//     header("Location: /Practicas/proto/login/login/vista/index.php"); 
+//     header("Location: /Practicas/login/login/vista/index.php"); 
 //     exit();
 // }
 

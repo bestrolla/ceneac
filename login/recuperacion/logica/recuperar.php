@@ -21,7 +21,7 @@ class PasswordRecoveryController extends BaseController {
             
             // Validar email
             if (empty($email) || !$this->validateEmail($email)) {
-                $this->redirect('/proto/login/login/vista/index.php', [
+                $this->redirect('/login/login/vista/index.php', [
                     'error' => 'invalid_email'
                 ]);
             }
@@ -44,7 +44,7 @@ class PasswordRecoveryController extends BaseController {
             }
             
             // Siempre mostrar el mismo mensaje por seguridad
-            $this->redirect('/proto/login/login/vista/index.php', [
+            $this->redirect('/login/login/vista/index.php', [
                 'message' => 'recovery_sent'
             ]);
             
@@ -106,7 +106,7 @@ try {
     $controller->requestRecovery();
 } catch (Exception $e) {
     error_log("Error en recuperación de contraseña: " . $e->getMessage());
-    header("Location: /proto/login/login/vista/index.php?error=system_error");
+    header("Location: /login/login/vista/index.php?error=system_error");
     exit;
 }
 ?>

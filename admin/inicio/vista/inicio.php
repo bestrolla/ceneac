@@ -33,7 +33,7 @@ $basePath = '../../../';
   
   <!-- Estilos específicos de la página -->
   <link rel="stylesheet" href="styles.css" />
-  <link rel="shortcut icon" href="/proto/login/login/vista/img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/login/login/vista/img/favicon.ico" type="image/x-icon" />
 </head>
 <body>
 

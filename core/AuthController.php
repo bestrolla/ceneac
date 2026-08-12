@@ -22,7 +22,7 @@ class AuthController extends BaseController {
             
             // Verificar token CSRF
             if (!$this->verifyCSRFToken($csrfToken)) {
-                $this->redirect('/proto/login/login/vista/index.php', [
+                $this->redirect('/login/login/vista/index.php', [
                     'error' => 'invalid_input',
                     'user' => $username
                 ]);
@@ -31,7 +31,7 @@ class AuthController extends BaseController {
             // Validar datos requeridos
             $errors = $this->validateRequired($data, ['usuario', 'contrasena']);
             if (!empty($errors)) {
-                $this->redirect('/proto/login/login/vista/index.php', [
+                $this->redirect('/login/login/vista/index.php', [
                     'error' => 'invalid_input',
                     'user' => $username
                 ]);
@@ -39,7 +39,7 @@ class AuthController extends BaseController {
             
             // Verificar intentos fallidos
             if (Security::hasTooManyFailedAttempts($username)) {
-                $this->redirect('/proto/login/login/vista/index.php', [
+                $this->redirect('/login/login/vista/index.php', [
                     'error' => 'too_many_attempts',
                     'user' => $username
                 ]);
@@ -65,7 +65,7 @@ class AuthController extends BaseController {
                 // Login fallido
                 Security::logFailedAttempt($username, $this->getClientIP());
                 
-                $this->redirect('/proto/login/login/vista/index.php', [
+                $this->redirect('/login/login/vista/index.php', [
                     'error' => 'login_failed',
                     'user' => $username
                 ]);
@@ -88,7 +88,7 @@ class AuthController extends BaseController {
             
             $this->log("Logout para usuario: {$username}", 'INFO');
             
-            $this->redirect('/proto/login/login/vista/index.php', ['message' => 'logout_success']);
+            $this->redirect('/login/login/vista/index.php', ['message' => 'logout_success']);
             
         } catch (Exception $e) {
             $this->handleError($e);
@@ -177,16 +177,16 @@ class AuthController extends BaseController {
     private function redirectToRole(string $role): void {
         switch ($role) {
             case 'administrador':
-                $this->redirect('/proto/admin/inicio/vista/inicio.php');
+                $this->redirect('/admin/inicio/vista/inicio.php');
                 break;
             case 'secretaria':
-                $this->redirect('/proto/secretaria/lobby/vista/Lobby.php');
+                $this->redirect('/secretaria/lobby/vista/Lobby.php');
                 break;
             case 'estudiante':
-                $this->redirect('/proto/estudiante/vista/inicio.php');
+                $this->redirect('/estudiante/vista/inicio.php');
                 break;
             default:
-                $this->redirect('/proto/login/login/vista/index.php', ['error' => 'invalid_role']);
+                $this->redirect('/login/login/vista/index.php', ['error' => 'invalid_role']);
         }
     }
     

@@ -72,7 +72,7 @@ $basePath = '../../../';
       }
     }
   </style>
-  <link rel="shortcut icon" href="/proto/login/login/vista/img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/login/login/vista/img/favicon.ico" type="image/x-icon" />
   <!-- FullCalendar CSS -->
   <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.9/main.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.9/main.min.css" rel="stylesheet">

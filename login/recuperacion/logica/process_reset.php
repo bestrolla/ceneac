@@ -20,21 +20,21 @@ class ProcessResetController extends BaseController {
             
             // Verificar CSRF token
             if (!$this->verifyCSRFToken($csrfToken)) {
-                $this->redirect("/proto/login/recuperacion/vista/reset.php?token=" . urlencode($token), [
+                $this->redirect("/login/recuperacion/vista/reset.php?token=" . urlencode($token), [
                     'error' => 'system_error'
                 ]);
             }
             
             // Validar datos requeridos
             if (empty($token) || empty($password) || empty($confirmPassword)) {
-                $this->redirect("/proto/login/recuperacion/vista/reset.php?token=" . urlencode($token), [
+                $this->redirect("/login/recuperacion/vista/reset.php?token=" . urlencode($token), [
                     'error' => 'system_error'
                 ]);
             }
             
             // Verificar que las contraseñas coincidan
             if ($password !== $confirmPassword) {
-                $this->redirect("/proto/login/recuperacion/vista/reset.php?token=" . urlencode($token), [
+                $this->redirect("/login/recuperacion/vista/reset.php?token=" . urlencode($token), [
                     'error' => 'password_mismatch'
                 ]);
             }
@@ -42,7 +42,7 @@ class ProcessResetController extends BaseController {
             // Validar fortaleza de contraseña
             $passwordErrors = $this->validatePassword($password);
             if (!empty($passwordErrors)) {
-                $this->redirect("/proto/login/recuperacion/vista/reset.php?token=" . urlencode($token), [
+                $this->redirect("/login/recuperacion/vista/reset.php?token=" . urlencode($token), [
                     'error' => 'weak_password'
                 ]);
             }
@@ -50,7 +50,7 @@ class ProcessResetController extends BaseController {
             // Verificar token de recuperación
             $recovery = $this->verifyRecoveryToken($token);
             if (!$recovery) {
-                $this->redirect("/proto/login/recuperacion/vista/reset.php?token=" . urlencode($token), [
+                $this->redirect("/login/recuperacion/vista/reset.php?token=" . urlencode($token), [
                     'error' => 'invalid_token'
                 ]);
             }
@@ -81,7 +81,7 @@ class ProcessResetController extends BaseController {
             $this->log("Contraseña restablecida para usuario ID: {$recovery['user_id']}", 'INFO');
             
             // Redirigir al login con mensaje de éxito
-            $this->redirect('/proto/login/login/vista/index.php', [
+            $this->redirect('/login/login/vista/index.php', [
                 'message' => 'password_reset'
             ]);
             
@@ -109,7 +109,7 @@ try {
     $controller->resetPassword();
 } catch (Exception $e) {
     error_log("Error en proceso de reset: " . $e->getMessage());
-    header("Location: /proto/login/login/vista/index.php?error=system_error");
+    header("Location: /login/login/vista/index.php?error=system_error");
     exit;
 }
 ?>
