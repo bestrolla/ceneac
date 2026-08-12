@@ -26,7 +26,7 @@ define('DB_CHARSET', env('DB_CHARSET', 'utf8mb4'));
 // Configuración de la aplicación
 define('APP_NAME', env('APP_NAME', 'CENEAC'));
 define('APP_VERSION', env('APP_VERSION', '1.0.0'));
-define('APP_URL', rtrim(env('APP_URL', 'http://localhost/proto'), '/'));
+define('APP_URL', rtrim(env('APP_URL', 'http://localhost/ceneac'), '/'));
 define('APP_PATH', __DIR__ . '/..');
 
 // Configuración de sesión
