@@ -1,17 +1,17 @@
 <?php
 class Database {
-    private string $host = 'server036.workserverdc.com';
-    private string $db_name = 'bibliotecamr_ceneac';
-    private string $username = 'bibliotecamr_angel';
-    private string $password = 'Isis0109$';
+    private string $host;
+    private string $db_name;
+    private string $username;
+    private string $password;
     private ?PDO $conn = null;
     private int $transactionLevel = 0;
 
     public function __construct(array $config = []) {
-        $this->host = $config['host'] ?? 'localhost';
-        $this->db_name = $config['dbname'] ?? 'ceneac';
-        $this->username = $config['username'] ?? 'root';
-        $this->password = $config['password'] ?? '';
+        $this->host = $config['host'] ?? (defined('DB_HOST') ? DB_HOST : 'server036.workserverdc.com');
+        $this->db_name = $config['dbname'] ?? (defined('DB_NAME') ? DB_NAME : 'bibliotecamr_ceneac');
+        $this->username = $config['username'] ?? (defined('DB_USER') ? DB_USER : 'bibliotecamr_angel');
+        $this->password = $config['password'] ?? (defined('DB_PASS') ? DB_PASS : 'Isis0109$');
     }
 
     public function connect(): PDO {
@@ -24,11 +24,11 @@ class Database {
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
                     PDO::ATTR_STRINGIFY_FETCHES => false,
                     PDO::ATTR_PERSISTENT => false,
-                    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci"
                 ];
-                
+
                 $this->conn = new PDO($dsn, $this->username, $this->password, $options);
-                
+                $this->conn->exec("SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci");
+
             } catch (PDOException $e) {
                 // Conversión segura del código de error a entero
                 $errorCode = is_numeric($e->getCode()) ? (int)$e->getCode() : 0;
