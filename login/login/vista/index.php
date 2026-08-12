@@ -40,7 +40,7 @@ $csrfToken = Security::generateCSRFToken();
   <meta name="description" content="Sistema de autenticación de Ceneac Producciones">
   <title>Ceneac | Inicio de Sesión</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" href="img/favicon.ico  " type="image/x-icon">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
   <style>
     .alert {
       padding: 12px 16px;
@@ -99,8 +99,8 @@ $csrfToken = Security::generateCSRFToken();
           <label for="passwordInput">Contraseña</label>
           <input type="password" name="contrasena" placeholder="Contraseña" id="passwordInput">
           <button type="button" class="toggle-password" aria-label="Mostrar contraseña">
-            <img src="/proto/login/login/vista/img/eye.svg" alt="Mostrar contraseña" class="password-icon" id="showPasswordIcon">
-            <img src="/proto/login/login/vista/img/eye-slash.svg" alt="Ocultar contraseña" class="password-icon" id="hidePasswordIcon" style="display: none;">
+            <img src="img/eye.svg" alt="Mostrar contraseña" class="password-icon" id="showPasswordIcon">
+            <img src="img/eye-slash.svg" alt="Ocultar contraseña" class="password-icon" id="hidePasswordIcon" style="display: none;">
           </button>
         </div>
         
@@ -115,7 +115,7 @@ $csrfToken = Security::generateCSRFToken();
     </div>
     
     <div class="logo-container">
-      <img src="/proto/login/login/vista/img/logoceneac.icon" alt="Logo Ceneac Producciones">
+      <img src="img/logoceneac.icon" alt="Logo Ceneac Producciones">
     </div>
   </section>
 
@@ -124,7 +124,7 @@ $csrfToken = Security::generateCSRFToken();
     <div class="modal-content">
       <span class="close-modal">&times;</span>
       <h2>Recuperar contraseña</h2>
-      <form id="recoveryForm" method="post" action="/proto/login/recuperacion/logica/recuperar.php">
+      <form id="recoveryForm" method="post" action="../../recuperacion/logica/recuperar.php">
         <div class="textbox-imail">
           <label for="emailInput">Correo electrónico</label>
           <input type="email" name="email" id="emailInput" placeholder="Correo electrónico" required
@@ -138,19 +138,19 @@ $csrfToken = Security::generateCSRFToken();
 
   <footer class="footer">
     <div class="footer-links">
-      <a href="/proto/inicio">Inicio</a>
-      <a href="/proto/servicios">Servicios</a>
-      <a href="/proto/portafolio">Portafolio</a>
-      <a href="/proto/contacto">Contacto</a>
-      <a href="/proto/terminos">Términos y condiciones</a>
-      <a href="/proto/privacidad">Política de privacidad</a>
+      <a href="../../../inicio">Inicio</a>
+      <a href="../../../servicios">Servicios</a>
+      <a href="../../../portafolio">Portafolio</a>
+      <a href="../../../contacto">Contacto</a>
+      <a href="../../../terminos">Términos y condiciones</a>
+      <a href="../../../privacidad">Política de privacidad</a>
     </div>
     <div class="footer-copyright">
       © 2025 Ceneac Producciones. Todos los derechos reservados.
     </div>
   </footer>
 
-  <script src="/proto/login/login/vista/script.js"></script>
+  <script src="script.js"></script>
   <!-- <script src="/proto/login/login/vista/depuracion.js"></script> -->
 
 </body>
