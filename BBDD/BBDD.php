@@ -1,4 +1,8 @@
 <?php
+if (file_exists(__DIR__ . '/../config/config.php')) {
+    require_once __DIR__ . '/../config/config.php';
+}
+
 class Database {
     private string $host;
     private string $db_name;

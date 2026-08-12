@@ -33,6 +33,11 @@ $basePath = '../../../';
 
   <main class="main-content">
     <h1>LOBBY</h1>
+    <?php if (!empty($dbError)): ?>
+      <div style="background-color: #fee2e2; border: 1px solid #fca5a5; color: #991b1b; padding: 12px 16px; border-radius: 8px; margin-bottom: 20px;">
+        <strong>⚠️ Advertencia de Conexión:</strong> No se pudo conectar a la base de datos de manera remota. (<?= htmlspecialchars($dbError) ?>)
+      </div>
+    <?php endif; ?>
     <div class="header">
       <p>(panel de control o lista de estudiantes)</p>
       <button class="add-btn" id="openModalBtn">Agregar Estudiante</button>
@@ -78,11 +83,13 @@ $basePath = '../../../';
           <label for="course">Curso:</label>
           <select id="course" name="curso" required>
             <option value="">Seleccione un curso</option>
-            <?php foreach ($cursos as $curso): ?>
-              <option value="<?= htmlspecialchars($curso['id_cursos']) ?>">
-                <?= htmlspecialchars($curso['nombre_curso']) ?>
-              </option>
-            <?php endforeach; ?>
+            <?php if (is_array($cursos)): ?>
+              <?php foreach ($cursos as $curso): ?>
+                <option value="<?= htmlspecialchars($curso['id_cursos']) ?>">
+                  <?= htmlspecialchars($curso['nombre_curso']) ?>
+                </option>
+              <?php endforeach; ?>
+            <?php endif; ?>
           </select>
         </div>
         <div class="form-group">

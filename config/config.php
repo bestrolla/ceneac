@@ -107,7 +107,9 @@ define('MAX_FILE_SIZE', 5 * 1024 * 1024); // 5MB
 define('ALLOWED_EXTENSIONS', ['jpg', 'jpeg', 'png', 'gif', 'pdf', 'doc', 'docx']);
 
 // Configuración de logging
-define('LOG_PATH', APP_PATH . '/logs');
+$defaultLogDir = APP_PATH . '/logs';
+$logDirWritable = (is_dir($defaultLogDir) && is_writable($defaultLogDir)) || (!is_dir($defaultLogDir) && @mkdir($defaultLogDir, 0755, true));
+define('LOG_PATH', env('LOG_PATH', $logDirWritable ? $defaultLogDir : sys_get_temp_dir()));
 define('LOG_LEVEL', 'INFO'); // DEBUG, INFO, WARNING, ERROR
 
 // Configuración de timezone
