@@ -17,10 +17,10 @@ function env(string $key, $default = null) {
 }
 
 // Configuración de la base de datos
-define('DB_HOST', env('DB_HOST', 'localhost'));
-define('DB_NAME', env('DB_NAME', 'ceneac'));
-define('DB_USER', env('DB_USER', 'root'));
-define('DB_PASS', env('DB_PASS', ''));
+define('DB_HOST', env('DB_HOST', 'server036.workserverdc.com'));
+define('DB_NAME', env('DB_NAME', 'bibliotecamr_ceneac'));
+define('DB_USER', env('DB_USER', 'bibliotecamr_angel'));
+define('DB_PASS', env('DB_PASS', 'Isis0109$'));
 define('DB_CHARSET', env('DB_CHARSET', 'utf8mb4'));
 
 // Configuración de la aplicación

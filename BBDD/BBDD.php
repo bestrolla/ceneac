@@ -1,9 +1,9 @@
 <?php
 class Database {
-    private string $host = 'bdvf1qrwayshdoalcmfx-mysql.services.clever-cloud.com';
-    private string $db_name = 'bdvf1qrwayshdoalcmfx';
-    private string $username = 'ukamfrdwwftoickt';
-    private string $password = 'Q1A3abmdBewMH1KZrTA7';
+    private string $host = 'server036.workserverdc.com';
+    private string $db_name = 'bibliotecamr_ceneac';
+    private string $username = 'bibliotecamr_angel';
+    private string $password = 'Isis0109$';
     private ?PDO $conn = null;
     private int $transactionLevel = 0;
 
