@@ -1,41 +1,35 @@
 /* ==========================================================================
-   Variables y Configuración Global (Minimalista)
+   Variables Globales
    ========================================================================== */
 :root {
-  /* Paleta de Colores Primaria */
-  --primary: #2563eb;         /* Azul refinado */
-  --primary-hover: #1d4ed8;   /* Azul oscuro suave */
-  --primary-light: #eff6ff;   /* Fondo azul ultra claro */
-  
-  /* Neutros */
-  --bg-main: #f8fafc;         /* Fondo general slate-50 */
-  --surface: #ffffff;         /* Tarjetas y contendores */
-  --border: #e2e8f0;          /* Líneas de división discretas */
-  --border-hover: #cbd5e1;
-  
-  /* Tipografía */
-  --text-main: #0f172a;       /* Texto principal casi negro */
-  --text-muted: #64748b;      /* Texto secundario / etiquetas */
-  
-  /* Estados */
-  --success-bg: #f0fdf4;
-  --success-text: #166534;
-  --error-bg: #fef2f2;
-  --error-text: #991b1b;
+  /* Paleta de Azules Principal */
+  --azul: #3558d5;
+  --azul-oscuro: #2a44b8;
+  --azul-claro: #d7e1ff;
+  --azul-muy-claro: #f0f4ff;
 
-  /* Sombras Minimalistas (Suaves y difusas) */
+  /* Neutros y Superficies */
+  --bg-main: #f8fafc;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  
+  /* Textos */
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --blanco: #ffffff;
+
+  /* Sombras Minimalistas */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 
-  /* Geometría y Animación */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --transition: all 0.2s ease-in-out;
+  /* Geometría */
+  --radio-sm: 6px;
+  --radio-md: 10px;
+  --radio-lg: 16px;
+  --transicion: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Reset y Base */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -43,7 +37,7 @@
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background-color: var(--bg-main);
   color: var(--text-main);
   display: flex;
@@ -54,7 +48,7 @@ body {
 }
 
 /* ==========================================================================
-   Navegación Superior (Top Bar)
+   Barra Superior (Top Bar)
    ========================================================================== */
 .top-bar {
   position: fixed;
@@ -65,42 +59,43 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
+  background: linear-gradient(135deg, var(--azul) 0%, var(--azul-oscuro) 100%);
   padding: 0 24px;
-  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
   z-index: 100;
 }
 
 .logo {
-  height: 36px;
+  height: 38px;
   width: auto;
-  transition: opacity var(--transition);
+  border-radius: var(--radio-sm);
+  transition: transform var(--transicion);
 }
 
 .logo:hover {
-  opacity: 0.85;
+  transform: scale(1.03);
 }
 
 .openbtn {
   font-size: 14px;
   font-weight: 500;
-  background-color: var(--surface);
-  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--blanco);
   padding: 8px 16px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   cursor: pointer;
-  transition: var(--transition);
+  border-radius: var(--radio-sm);
+  transition: var(--transicion);
+  backdrop-filter: blur(4px);
 }
 
 .openbtn:hover {
-  background-color: var(--bg-main);
-  border-color: var(--border-hover);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: var(--blanco);
 }
 
 /* ==========================================================================
-   Menú Lateral (Sidebar)
+   Sidebar Conservado (Azul Elegante)
    ========================================================================== */
 .sidebar {
   height: 100%;
@@ -109,29 +104,31 @@ body {
   z-index: 1001;
   top: 0;
   left: 0;
-  background-color: var(--surface);
+  background: linear-gradient(180deg, var(--azul) 0%, var(--azul-oscuro) 100%);
   overflow-x: hidden;
   transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   padding-top: 72px;
-  border-right: 1px solid var(--border);
   box-shadow: var(--shadow-lg);
 }
 
 .sidebar a {
-  padding: 12px 24px;
+  padding: 14px 24px;
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.9);
   display: flex;
   align-items: center;
   gap: 12px;
-  transition: var(--transition);
+  transition: var(--transicion);
+  border-left: 3px solid transparent;
 }
 
 .sidebar a:hover {
-  background-color: var(--primary-light);
-  color: var(--primary);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--blanco);
+  border-left-color: var(--blanco);
+  padding-left: 28px;
 }
 
 .closebtn {
@@ -139,26 +136,26 @@ body {
   top: 16px;
   right: 16px;
   font-size: 20px;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.1);
   border: none;
-  color: var(--text-muted);
+  color: var(--blanco);
   cursor: pointer;
   width: 36px;
   height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-sm);
-  transition: var(--transition);
+  border-radius: 50%;
+  transition: var(--transicion);
 }
 
 .closebtn:hover {
-  background-color: var(--bg-main);
-  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
 }
 
 /* ==========================================================================
-   Contenido Principal
+   Contenido Principal Minimalista
    ========================================================================== */
 .main-content {
   flex: 1;
@@ -167,7 +164,7 @@ body {
   max-width: 1100px;
   width: 90%;
   background-color: var(--surface);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radio-lg);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
 }
@@ -175,7 +172,7 @@ body {
 .main-content h1 {
   font-size: 1.75rem;
   font-weight: 600;
-  color: var(--text-main);
+  color: var(--azul);
   margin-bottom: 24px;
   letter-spacing: -0.02em;
 }
@@ -188,9 +185,8 @@ body {
   margin-bottom: 24px;
   gap: 16px;
   padding: 16px 20px;
-  background-color: var(--bg-main);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  background-color: var(--azul-muy-claro);
+  border-radius: var(--radio-md);
 }
 
 p {
@@ -198,32 +194,32 @@ p {
   font-size: 14px;
 }
 
-/* Botones Principales */
 .add-btn {
-  background-color: var(--primary);
-  color: #ffffff;
+  background: linear-gradient(135deg, var(--azul) 0%, var(--azul-oscuro) 100%);
+  color: var(--blanco);
   padding: 10px 20px;
   border: none;
   font-weight: 500;
   font-size: 14px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radio-sm);
   cursor: pointer;
-  transition: var(--transition);
+  transition: var(--transicion);
   box-shadow: var(--shadow-sm);
 }
 
 .add-btn:hover {
-  background-color: var(--primary-hover);
+  opacity: 0.95;
+  transform: translateY(-1px);
 }
 
 /* ==========================================================================
-   Tablas Estilizadas
+   Tabla Limpia
    ========================================================================== */
 .table-container {
   width: 100%;
   overflow-x: auto;
   margin: 16px 0;
-  border-radius: var(--radius-md);
+  border-radius: var(--radio-md);
   border: 1px solid var(--border);
 }
 
@@ -234,29 +230,24 @@ p {
 }
 
 .student-table th {
-  background-color: var(--bg-main);
+  background-color: var(--azul-muy-claro);
   font-weight: 600;
-  color: var(--text-muted);
+  color: var(--azul);
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 12px 16px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid var(--azul-claro);
 }
 
 .student-table td {
   padding: 14px 16px;
   border-bottom: 1px solid var(--border);
   font-size: 14px;
-  color: var(--text-main);
-}
-
-.student-table tbody tr:last-child td {
-  border-bottom: none;
 }
 
 .student-table tbody tr:hover {
-  background-color: var(--primary-light);
+  background-color: var(--azul-muy-claro);
 }
 
 .icons {
@@ -267,8 +258,8 @@ p {
 
 .icons img {
   cursor: pointer;
-  opacity: 0.6;
-  transition: var(--transition);
+  opacity: 0.7;
+  transition: var(--transicion);
   width: 18px;
   height: 18px;
 }
@@ -278,13 +269,13 @@ p {
 }
 
 /* ==========================================================================
-   Panel de Configuración / Formularios
+   Panel de Configuración
    ========================================================================== */
 .config-panel {
   background: var(--surface);
   padding: 32px;
   margin: 40px auto;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radio-lg);
   max-width: 420px;
   width: 100%;
   border: 1px solid var(--border);
@@ -295,14 +286,13 @@ p {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 20px;
-  color: var(--text-main);
+  color: var(--azul);
 }
 
 .config-form label {
   display: block;
   margin-bottom: 6px;
   font-weight: 500;
-  color: var(--text-main);
   font-size: 13px;
 }
 
@@ -316,17 +306,16 @@ p {
   width: 100%;
   padding: 10px 14px;
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radio-sm);
   font-size: 14px;
-  transition: var(--transition);
+  transition: var(--transicion);
   background-color: var(--surface);
-  color: var(--text-main);
 }
 
 .config-form input:focus {
   outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  border-color: var(--azul);
+  box-shadow: 0 0 0 3px rgba(53, 88, 213, 0.15);
 }
 
 .toggle-password {
@@ -338,7 +327,7 @@ p {
   border: none;
   cursor: pointer;
   opacity: 0.5;
-  transition: var(--transition);
+  transition: var(--transicion);
 }
 
 .toggle-password:hover {
@@ -353,87 +342,77 @@ p {
 .config-form button[type="submit"] {
   width: 100%;
   padding: 10px;
-  background-color: var(--primary);
-  color: white;
+  background: linear-gradient(135deg, var(--azul) 0%, var(--azul-oscuro) 100%);
+  color: var(--blanco);
   border: none;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radio-sm);
   cursor: pointer;
   font-weight: 500;
   font-size: 14px;
-  transition: var(--transition);
+  transition: var(--transicion);
   margin-top: 8px;
 }
 
 .config-form button[type="submit"]:hover {
-  background-color: var(--primary-hover);
+  opacity: 0.95;
 }
 
-/* Mensajes de Alerta */
+/* Mensajes */
 .config-message {
   margin-top: 16px;
   padding: 12px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radio-sm);
   font-size: 13px;
   font-weight: 500;
   text-align: center;
 }
 
 .config-message.success {
-  background-color: var(--success-bg);
-  color: var(--success-text);
+  background-color: #f0fdf4;
+  color: #166534;
   border: 1px solid rgba(22, 101, 52, 0.15);
 }
 
 .config-message.error {
-  background-color: var(--error-bg);
-  color: var(--error-text);
+  background-color: #fef2f2;
+  color: #991b1b;
   border: 1px solid rgba(153, 27, 27, 0.15);
 }
 
 .error-message {
-  color: var(--error-text);
+  color: #991b1b;
   font-size: 12px;
   margin-top: 4px;
   display: none;
 }
 
-/* ==========================================================================
-   Footer y Accesibilidad
-   ========================================================================== */
+/* Footer */
 footer {
   text-align: center;
   padding: 24px;
-  background-color: var(--surface);
-  color: var(--text-muted);
+  background: linear-gradient(135deg, var(--azul) 0%, var(--azul-oscuro) 100%);
+  color: var(--blanco);
   font-size: 13px;
   margin-top: auto;
-  border-top: 1px solid var(--border);
 }
 
-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* ==========================================================================
-   Diseño Adaptativo (Responsive Design)
-   ========================================================================== */
+/* Adaptación Responsiva */
 @media (max-width: 768px) {
   .main-content {
     margin: 72px 16px 24px;
     padding: 20px;
     width: auto;
   }
-  
+
   .top-bar {
     padding: 0 16px;
   }
-  
+
   .header {
     flex-direction: column;
     align-items: stretch;
   }
-  
+
   .add-btn {
     width: 100%;
   }
@@ -448,7 +427,7 @@ button:disabled {
   .main-content h1 {
     font-size: 1.4rem;
   }
-  
+
   .student-table th,
   .student-table td {
     padding: 10px 12px;
