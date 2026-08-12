@@ -137,7 +137,8 @@ body {
 
 /* Contenido principal */
 main.contenido {
-  margin: 90px auto 30px;
+  
+  margin: 0px auto 30px;
   padding: 40px;
   background: var(--blanco);
   max-width: 1200px;
