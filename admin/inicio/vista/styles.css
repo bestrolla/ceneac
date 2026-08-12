@@ -306,8 +306,8 @@ table.tabla-programados button.btn-delete:hover {
 footer {
   text-align: center;
   padding: 24px;
-  background: var(--blanco);
-  color: var(--gris-oscuro);
+  background: var(--azul);
+  color: var(--blanco);
   border-top: 1px solid var(--gris);
   font-size: 14px;
 }
