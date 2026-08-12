@@ -1,7 +1,7 @@
 <?php 
 // Incluir el componente de navegación centralizado
 require_once '../../../components/navigation/admin_sidebar.php';
-
+ensureSessionStarted();
 // Configurar página actual y ruta base
 $currentPage = 'secretarias_retiradas';
 $basePath = '../../../';
