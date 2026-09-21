@@ -108,9 +108,9 @@ $basePath = '../../../';
         <?php endif; ?>
     </div>
     
-    <footer>
+    <!-- <footer>
         <p>© 2025 CENEAC. Todos los derechos reservados.</p>
-    </footer>
+    </footer> -->
     
     <!-- JavaScript del sidebar centralizado -->
     <?= renderSidebarScript() ?>
