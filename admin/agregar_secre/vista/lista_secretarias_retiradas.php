@@ -57,10 +57,10 @@ $basePath = '../../../';
     <div id="paginacion-ret" class="paginacion"></div>
   </main>
 
-  <!-- Pie de página -->
+  <!-- Pie de página
   <footer>
     <p>© 2025 CENEAC. Todos los derechos reservados.</p>
-  </footer>
+  </footer> -->
 
   <!-- Modal Reintegrar Secretaria -->
   <div id="modal-reintegrar" class="modal-overlay">
