@@ -58,13 +58,17 @@ $basePath = '../../../';
                 <input type="text" name="cedula" placeholder="Cédula" required />
                 <input type="text" name="telefono" placeholder="Teléfono" required />
                 <input type="email" name="correo" placeholder="Correo" required />
-                <input type="text" name="especialidad" placeholder="Especialidad" required style="text-transform: uppercase;" />
+                <input type="text" name="especialidad" placeholder="Especialidad" required class="campo-especialidad" />
                 <button type="submit">¡Añadir Profesor!</button>
                 <button type="button" onclick="window.location.href='historial_ausencias.php'" class="btn-historial">Historial</button>
             </form>
 
+            <div class="buscador-container">
+                <input type="text" id="buscar-profesor" placeholder="Buscar por nombre, apellido o cédula..." />
+            </div>
+
             <div class="table-container">
-                <table class="tabla-profesor" border="1">
+                <table class="tabla-profesor">
                 <thead>
                     <tr>
                         <th>Nombre Completo</th>
@@ -91,7 +95,7 @@ $basePath = '../../../';
                                     </span>
                                 </td>
                                 <td>
-                                    <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+                                    <div class="acciones-profesor">
                                         <button class="btn-info" onclick="mostrarInfoProfesor(<?= htmlspecialchars($p['id_profe'] ?? '') ?>, '<?= htmlspecialchars($p['nombre'] ?? '') ?>', '<?= htmlspecialchars($p['apellido'] ?? '') ?>', '<?= htmlspecialchars($p['cedula'] ?? '') ?>', '<?= htmlspecialchars($p['telefono'] ?? '') ?>', '<?= htmlspecialchars($p['correo'] ?? '') ?>', '<?= htmlspecialchars($p['especialidad'] ?? '') ?>', '<?= isset($p['fecha_registro']) ? date('d/m/Y H:i', strtotime($p['fecha_registro'])) : 'N/A' ?>', '<?= htmlspecialchars($p['status'] ?? '') ?>')">
                                             Info
                                         </button>
@@ -105,8 +109,7 @@ $basePath = '../../../';
                                             <button class="btn-reactivar" data-id="<?= htmlspecialchars($p['id_profe'] ?? '') ?>">Reactivar</button>
                                         <?php } ?>
                                         
-                                        <!-- Botón de eliminar -->
-                                        <form method="post" style="display: inline;" onsubmit="return confirm('¿Estás seguro de que quieres eliminar a este profesor? Esta acción no se puede deshacer.')">
+                                        <form method="post" class="form-eliminar-profe" onsubmit="return confirm('¿Estás seguro de que quieres eliminar a este profesor? Esta acción no se puede deshacer.')">
                                             <input type="hidden" name="id_profe" value="<?= htmlspecialchars($p['id_profe'] ?? '') ?>">
                                             <button type="submit" name="eliminar_profe" class="btn-eliminar">Eliminar</button>
                                         </form>
