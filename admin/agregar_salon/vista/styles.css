@@ -1,8 +1,11 @@
 :root {
   --azul: #3558d5;
+  --azul-oscuro: #2a44b8;
   --azul-claro: #d7e1ff;
   --blanco: #fff;
   --gris: #e9e9e9;
+  --gris-fondo: #f4f7fb;
+  --texto: #1d1d1d;
 }
 
 * {
@@ -14,11 +17,30 @@
 /* Decoración del body */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f6f9ff;
+  background-color: var(--gris-fondo);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   line-height: 1.6;
+  color: var(--texto);
+}
+
+.contenedor-principal {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 0 40px;
+}
+
+main.contenido,
+.contenido {
+  width: min(1200px, 90%);
+  margin: 100px auto 40px;
+  background: var(--blanco);
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  padding: 30px 25px;
 }
 
 /* Barra superior */
