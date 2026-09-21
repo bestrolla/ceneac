@@ -1,0 +1,345 @@
+:root {
+  --admin-azul: #3558d5;
+  --admin-azul-oscuro: #2a44b8;
+  --admin-azul-claro: #d7e1ff;
+  --admin-blanco: #ffffff;
+  --admin-gris: #e9e9e9;
+  --admin-gris-fondo: #f4f7fb;
+  --admin-texto: #1d1d1d;
+  --admin-success: #d4edda;
+  --admin-danger: #f8d7da;
+  --admin-info: #d1ecf1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--admin-gris-fondo);
+  color: var(--admin-texto);
+  line-height: 1.6;
+}
+
+section.contenedor-principal,
+.contenedor-principal {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 0 40px;
+}
+
+main.contenido,
+.contenido {
+  width: min(1200px, 90%);
+  margin: 100px auto 40px;
+  background: var(--admin-blanco);
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  padding: 30px 25px;
+}
+
+body.sidebar-open .contenedor-principal,
+body.sidebar-open main.contenido,
+body.sidebar-open .contenido {
+  margin-left: 250px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--admin-azul);
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 2.5vw, 2.8rem);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  text-align: center;
+  margin: 25px 0 20px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 55px;
+  height: 3px;
+  background: var(--admin-azul);
+  border-radius: 3px;
+}
+
+form[id^="form-"] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
+  background: #fafbfc;
+  border: 1px solid var(--admin-gris);
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+form[id^="form-"] input,
+form[id^="form-"] select,
+form[id^="form-"] textarea,
+form[id^="form-"] button,
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+  font: inherit;
+  border-radius: 6px;
+  border: 1px solid var(--admin-gris);
+  padding: 12px 14px;
+}
+
+form[id^="form-"] input,
+form[id^="form-"] select,
+form[id^="form-"] textarea {
+  flex: 1 1 220px;
+  background: var(--admin-blanco);
+  color: var(--admin-texto);
+}
+
+form[id^="form-"] input:focus,
+form[id^="form-"] select:focus,
+form[id^="form-"] textarea:focus {
+  outline: none;
+  border-color: var(--admin-azul);
+  box-shadow: 0 0 0 3px rgba(53, 88, 213, 0.12);
+}
+
+button,
+.btn,
+.btn-info,
+.btn-edit,
+.btn-delete,
+.btn-active,
+.btn-inactivar,
+.btn-activar,
+.btn-ausentar,
+.btn-reactivar,
+.btn-eliminar,
+.btn-cerrar,
+.btn-submit,
+.btn-cancel,
+.btn-add {
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+button:hover,
+.btn:hover,
+.btn-info:hover,
+.btn-edit:hover,
+.btn-delete:hover,
+.btn-active:hover,
+.btn-inactivar:hover,
+.btn-activar:hover,
+.btn-ausentar:hover,
+.btn-reactivar:hover,
+.btn-eliminar:hover,
+.btn-cerrar:hover,
+.btn-submit:hover,
+.btn-cancel:hover,
+.btn-add:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.98);
+}
+
+button[type="submit"],
+.btn-submit,
+.btn-add,
+.btn-activar,
+.btn-reactivar,
+.btn-info {
+  background: var(--admin-azul);
+  color: var(--admin-blanco);
+}
+
+.btn-edit,
+.btn-ausentar,
+.btn-inactivar {
+  background: #ffc107;
+  color: #212529;
+}
+
+.btn-delete,
+.btn-eliminar,
+.btn-cancel {
+  background: #dc3545;
+  color: var(--admin-blanco);
+}
+
+.btn-cerrar {
+  background: var(--admin-azul);
+  color: var(--admin-blanco);
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+  margin: 0 auto 18px;
+}
+
+.table-container table,
+.tabla-cursos,
+.tabla-profesor,
+.tabla-secre {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+  background: var(--admin-blanco);
+}
+
+.table-container th,
+.table-container td,
+.tabla-cursos th,
+.tabla-cursos td,
+.tabla-profesor th,
+.tabla-profesor td,
+.tabla-secre th,
+.tabla-secre td {
+  text-align: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--admin-gris);
+}
+
+.table-container th,
+.tabla-cursos th,
+.tabla-profesor th,
+.tabla-secre th {
+  background: var(--admin-azul);
+  color: var(--admin-blanco);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+
+.table-container tbody tr:nth-child(even),
+.tabla-cursos tbody tr:nth-child(even),
+.tabla-profesor tbody tr:nth-child(even),
+.tabla-secre tbody tr:nth-child(even) {
+  background: var(--admin-azul-claro);
+}
+
+.table-container tbody tr:hover,
+.tabla-cursos tbody tr:hover,
+.tabla-profesor tbody tr:hover,
+.tabla-secre tbody tr:hover {
+  background: #dfe9ff;
+}
+
+.alert-success,
+.alert-error,
+.alert-info {
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin: 18px auto;
+  text-align: center;
+  max-width: 700px;
+}
+
+.alert-success {
+  background: var(--admin-success);
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+  background: var(--admin-danger);
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.alert-info {
+  background: var(--admin-info);
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+.modal,
+.modal-overlay,
+.event-form-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content,
+.event-form-modal-content,
+.confirm-modal-content {
+  background: var(--admin-blanco);
+  width: min(520px, 90%);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  padding: 25px;
+}
+
+.modal-header {
+  background: var(--admin-azul);
+  color: var(--admin-blanco);
+  border-radius: 10px 10px 0 0;
+  padding: 18px 20px;
+  margin: -25px -25px 20px;
+}
+
+.close-btn,
+.close,
+#close-panel-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: inherit;
+}
+
+footer,
+.footer {
+  background: var(--admin-azul);
+  color: var(--admin-blanco);
+  text-align: center;
+  padding: 16px 20px;
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  main.contenido,
+  .contenido {
+    width: 95%;
+    padding: 20px 15px;
+    margin-top: 90px;
+  }
+
+  form[id^="form-"] {
+    padding: 18px 14px;
+  }
+}

@@ -46,6 +46,9 @@ try {
     <!-- Enlaces a los archivos CSS de FullCalendar -->
     <link href="css/fullcalendar/main.min.css" rel="stylesheet" />
     
+    <!-- Estilo base unificado para administración -->
+    <link rel="stylesheet" href="<?= $basePath ?>admin/shared_admin_styles.css" />
+
     <!-- Tu CSS personalizado del calendario (ya incluye la integración del sidebar) -->
     <link href="css/style.css" rel="stylesheet" />
     

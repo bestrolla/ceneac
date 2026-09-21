@@ -23,6 +23,9 @@ $basePath = '../../../';
     <!-- Estilos responsive centralizados -->
     <link rel="stylesheet" href="<?= $basePath ?>components/navigation/admin_responsive.css" />
     
+    <!-- Estilo base unificado para administración -->
+    <link rel="stylesheet" href="<?= $basePath ?>admin/shared_admin_styles.css" />
+
     <!-- Estilos específicos del módulo (solo elementos propios, sin navegación) -->
     <link rel="stylesheet" href="profesor_module_styles.css" />
     
