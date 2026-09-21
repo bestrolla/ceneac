@@ -31,12 +31,14 @@ body {
 }
 
 .contenedor-principal {
+  width: 100%;
   transition: margin-left 0.3s ease;
   margin-left: 0;
   min-height: calc(100vh - 60px);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 main.contenido {
@@ -47,7 +49,11 @@ main.contenido {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   border-radius: 10px;
   max-width: 1200px;
-  width: 90%;
+  width: min(1200px, 90%);
+}
+
+body.sidebar-open .contenedor-principal {
+  margin-left: 250px;
 }
 
 h1 {
