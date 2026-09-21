@@ -15,10 +15,7 @@ $basePath = '../../../';
   
   <!-- Estilos del sidebar centralizado -->
   <link rel="stylesheet" href="<?= $basePath ?>components/navigation/sidebar_styles.css" />
-  
-  <!-- Estilos específicos de la página -->
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="modal.css" />
+  <link rel="stylesheet" href="<?= $basePath ?>admin/shared_admin_styles.css" />
   <link rel="shortcut icon" href="/login/login/vista/img/favicon.ico" type="image/x-icon">
 </head>
 <body>

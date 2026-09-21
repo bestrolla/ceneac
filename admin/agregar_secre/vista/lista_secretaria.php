@@ -24,10 +24,6 @@ $basePath = '../../../';
   
   <!-- Estilo base unificado para administración -->
   <link rel="stylesheet" href="<?= $basePath ?>admin/shared_admin_styles.css" />
-
-  <!-- Estilos específicos de la página -->
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="modal.css" />
   <link rel="shortcut icon" href="/login/login/vista/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
