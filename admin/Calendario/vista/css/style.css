@@ -107,7 +107,7 @@ body.sidebar-open {
 .main-content {
     flex-grow: 1;
     padding: 20px;
-    padding-top: 20px; /* Reducido ya que el padding está en el body */
+    padding-top: 20px;
     transition: margin-right 0.3s ease;
     box-sizing: border-box;
     display: flex;
@@ -124,11 +124,12 @@ body.sidebar-open {
     padding: 25px;
     background-color: #ffffff;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
     box-sizing: border-box;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    border: 1px solid var(--gris);
 }
 
 #calendar {
@@ -321,13 +322,13 @@ body.sidebar-open {
     width: 380px;
     height: 100vh;
     background-color: #f8f9fa;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.12);
     transition: right 0.3s ease-in-out;
     z-index: 1000;
     display: flex;
     flex-direction: column;
     padding: 20px;
-    padding-top: 60px; /* Espacio para la navbar */
+    padding-top: 60px;
     box-sizing: border-box;
     border-left: 1px solid #e0e0e0;
 }
@@ -338,7 +339,7 @@ body.sidebar-open {
 
 #event-details-panel h3 {
     margin-top: 0;
-    color: #333;
+    color: var(--azul);
     font-size: 1.5em;
     padding-bottom: 10px;
     border-bottom: 1px solid #eee;
@@ -446,20 +447,20 @@ body.sidebar-open {
 }
 
 .panel-actions .btn-add {
-    background-color: #3478F5; /* Azul del tema */
+    background-color: var(--azul);
     color: white;
 }
 .panel-actions .btn-add:hover {
-    background-color: #2a6ed0;
+    background-color: var(--azul-oscuro);
     transform: translateY(-1px);
 }
 
 .panel-actions .btn-edit {
-    background-color: #007bff;
+    background-color: #17a2b8;
     color: white;
 }
 .panel-actions .btn-edit:hover {
-    background-color: #0056b3;
+    background-color: #138496;
     transform: translateY(-1px);
 }
 
@@ -497,17 +498,18 @@ body.sidebar-open {
 .event-form-modal-content {
     background-color: #ffffff;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     max-width: 500px;
     width: 90%;
     text-align: left;
+    border: 1px solid var(--gris);
 }
 
 .event-form-modal-content h4 {
     margin-top: 0;
     margin-bottom: 20px;
-    color: #333;
+    color: var(--azul);
     font-size: 1.5em;
     text-align: center;
 }
@@ -530,7 +532,7 @@ body.sidebar-open {
     width: calc(100% - 20px);
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 6px;
     font-size: 1em;
     box-sizing: border-box;
 }
@@ -557,11 +559,11 @@ body.sidebar-open {
 }
 
 .event-form-modal-content .modal-buttons .btn-submit {
-    background-color: #3478F5; /* Azul del tema */
+    background-color: var(--azul);
     color: white;
 }
 .event-form-modal-content .modal-buttons .btn-submit:hover {
-    background-color: #2a6ed0;
+    background-color: var(--azul-oscuro);
 }
 
 .event-form-modal-content .modal-buttons .btn-cancel {
